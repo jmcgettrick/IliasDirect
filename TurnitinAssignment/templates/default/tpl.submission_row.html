@@ -1,0 +1,78 @@
+<tr class="{CSS_ROW}">
+	<td class="std">
+	<!-- BEGIN checkb -->
+		<span class="{HIDE_CHECKBOX}">
+			<input type="checkbox" name="submission_ids[]" value="{ID}" />
+		</span>
+	<!-- END checkb -->
+	</td>
+	<!-- BEGIN Author -->
+	<td class="std">
+		<span class="small {POPUP_CLASS}" id="{VAL_PAPER_ID}">{VAL_AUTHOR}</span>
+	</td>
+	<!-- END Author -->
+	<td class="std">
+		<!-- BEGIN submission_link -->
+		<span class="small"><a onclick="javascript:openDvWindow('{LINK_FILE_TITLE}&paper_id={VAL_PAPER_ID}', '')">{VAL_SUBMISSION_TITLE}</a></span>
+		<!-- END submission_link -->
+		<!-- BEGIN submission_plain -->
+		<span class="small">{VAL_NO_SUBMISSION_TITLE}</span>
+		<!-- END submission_plain -->
+	</td>	
+	<!-- BEGIN similarity_title -->
+	<td class="std rightish">
+		<span class="small">
+			<span class="{HIDE_PENDING_REPORT}">
+				<span class="gen">--</span>				
+			</span>
+			<span class="{HIDE_SCORE}">
+				<a onclick="javascript:openDvWindow('{LINK_ORIG_REPORT}&paper_id={VAL_PAPER_ID}', '')">
+					<span class="score">
+						{VAL_ORIG_REPORT_SCORE}%
+					</span>
+					<span class="or_flag" style="background-position:0% {VAL_ORIG_REPORT_SCORE}%">&nbsp;{VAL_LNG_OVERLAY_TEXT}</span>
+				</a>
+			</span>
+			<span class="{ORIG_REPORT_NO_SUBMISSION}">--</span>
+		</span>
+	</td>
+	<!-- END similarity_title -->
+	<!-- BEGIN grade -->
+	<td class="std center">
+		<span class="small {GRADE_SUBMISSION}">
+			<a class="grade" onclick="javascript:openDvWindow('{LINK_GRADE_FILE}&paper_id={VAL_PAPER_ID}', '')" title="{GRADE_FILE}">
+				<!-- BEGIN grade_image -->
+				<img class="{HIDE_GRADE_IMAGE}" src="Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/images/icon-edit.png" alt="{GRADE_FILE}" title="{GRADE_FILE}" />
+				<!-- END grade_image -->
+				<!-- BEGIN grade_score -->
+				<span class="{HIDE_GRADE_SCORE}">{VAL_GRADE_SCORE}</span>
+				<!-- END grade_score -->
+			</a>
+		</span>
+		<span class="{GRADE_NO_SUBMISSION}">--</span>
+	</td>
+	<!-- END grade -->
+	<!-- BEGIN response -->
+	<td class="std center">
+		<img class="{RESPONSE_SUBMISSION}" src="Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/images/{RESPONSE_IMAGE}.png" alt="{RESPONSE_TEXT}" title="{RESPONSE_TEXT}"/>
+		<span class="{RESPONSE_NO_SUBMISSION}">--</span>
+	</td>
+	<!-- END response -->
+	<!-- BEGIN file -->
+	<td class="std center">
+		<span class="small {FILE_SUBMISSION}"><a onclick="javascript:openDvWindow('{LINK_FILE}&paper_id={VAL_PAPER_ID}', 'height=100,width=300')" title="Download File"><img src="Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/images/icon-file-blue.png" alt="{DOWNLOAD_FILE}" title="{DOWNLOAD_FILE}" /></a></span>
+		<span class="{FILE_NO_SUBMISSION}">--</span>
+		<span class="{FILE_NOT_DOWNLOADABLE}"><img src="Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/images/icon-file-blue.png" alt="{CANT_DOWNLOAD_FILE}" title="{CANT_DOWNLOAD_FILE}" /></span>
+	</td>
+	<!-- END file -->
+	<!-- BEGIN paper id -->
+	<td class="std">
+		<span class="small">{VAL_PAPER_ID}</span>
+	</td>
+	<!-- END paper id -->
+	<!-- BEGIN date -->
+	<td class="std">
+		<span class="small {VAL_DATE_CLASS}">{VAL_DATE}</span>
+	</td>
+	<!-- END date -->
+</tr>

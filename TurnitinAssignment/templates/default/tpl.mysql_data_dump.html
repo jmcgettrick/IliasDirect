@@ -1,0 +1,93 @@
+<!-- BEGIN css_file -->
+<link rel="stylesheet" type="text/css" href="{CSS_FILE}" media="{CSS_MEDIA}" />
+<!-- END css_file -->
+<!-- BEGIN course_list_header -->
+<h2>{COURSES_HEADER}</h2>
+
+<div class="table_container">
+	<table class="mysql_dump">
+		<tr>
+			<th>{TABLE_HEADER_COURSE_TITLE}</th>
+			<th>{TABLE_HEADER_ILIAS_OBJ_ID}</th>
+			<th>{TABLE_HEADER_ILIAS_REF_ID}</th>
+			<th>{TABLE_HEADER_TII_ID}</th>
+			<th>{TABLE_HEADER_COURSE_TUTOR_ID}</th>
+			<th>{TABLE_HEADER_COURSE_TUTOR_TII_ID}</th> 
+		</tr>
+<!-- END course_list_header -->
+<!-- BEGIN course_list_block -->
+		<tr>	
+			<td>{COURSE_TITLE}</td>
+			<td>{COURSE_OBJ_ID}</td>
+			<td>{COURSE_REF_ID}</td>
+			<td>{COURSE_TII_ID}</td>
+			<td>{COURSE_TUTOR}</td>
+			<td>{COURSE_TII_TUTOR}</td>
+		</tr>
+<!-- END course_list_block -->
+<!-- BEGIN course_list_footer -->
+	</table>
+</div>
+<!-- END course_list_footer -->
+
+<!-- BEGIN assignment_list_header -->
+<h2>{ASSIGNMENTS_HEADER}</h2>
+
+<div class="table_container">
+	<table class="mysql_dump">
+		<tr>
+			<th>{TABLE_HEADER_ASSIGNMENT_TITLE}</th>
+			<th>{TABLE_HEADER_ILIAS_OBJ_ID}</th>
+			<th>{TABLE_HEADER_ILIAS_REF_ID}</th>
+			<th>{TABLE_HEADER_ILIAS_COURSE_REF_ID}</th>
+			<th>{TABLE_HEADER_TII_ID}</th>
+		</tr>
+
+<!-- END assignment_list_header -->
+<!-- BEGIN assignment_list_block -->
+		<tr>
+			<td>{ASSIGNMENT_TITLE}</td>
+			<td>{ASSIGNMENT_OBJ_ID}</td>
+			<td>{ASSIGNMENT_REF_ID}</td>
+			<td>{ASSIGNMENT_COURSE_REF_ID}</td>
+			<td>{ASSIGNMENT_TII_ID}</td>
+		</tr>
+<!-- END assignment_list_block -->
+<!-- BEGIN assignment_list_footer -->
+	</table>
+</div>
+<!-- END assignment_list_footer -->
+
+<!-- BEGIN submission_list_header -->
+<h2>{SUBMISSIONS_HEADER}</h2>
+
+<div class="table_container">
+	<table class="mysql_dump">
+		<tr>
+			<th>{TABLE_HEADER_SUB_REF_ID}</th>
+			<th>{TABLE_HEADER_SUB_TII_ID}</th>
+			<th>{TABLE_HEADER_ASS_REF_ID}</th>
+			<th>{TABLE_HEADER_USER_ID}</th>
+			<th>{TABLE_HEADER_TII_USER_ID}</th>
+			<th>{TABLE_HEADER_TII_USER_EMAIL}</th>
+			<th>{TABLE_HEADER_TII_DATE_TIME}</th>
+		</tr>
+<!-- END submission_list_header -->
+<!-- BEGIN submission_list_block -->
+		<tr>
+			<td>{SUBMISSION_REF_ID}</td>
+			<td>{SUBMISSION_TII_ID}</td>
+			<td>{ASSIGNMENT_REF_ID}</td>
+			<td>{USER_ID}</td>
+			<td>{USER_TII_ID}</td>
+			<td>{USER_EMAIL}</td>
+			<td>{SUBMISSION_DATE_TIME}</td>
+		</tr>
+<!-- END submission_list_block -->
+<!-- BEGIN submission_list_footer -->
+	</table>
+</div>
+<!-- END submission_list_footer -->
+<!-- BEGIN export_dump_link -->
+<p><a href="{EXPORT_LINK}" title="{EXPORT_LINK_TEXT}">{EXPORT_LINK_TEXT}</a></p>
+<!-- END export_dump_link -->

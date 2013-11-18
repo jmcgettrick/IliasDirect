@@ -1,0 +1,178 @@
+.test_beta_notice
+{
+	font-size:10px;
+}
+
+.clear
+{
+	clear:both;
+}
+
+a
+{
+	cursor:pointer;
+}
+
+th.center, td.center
+{
+	text-align:center !important;
+}
+
+th.right, td.right
+{
+	text-align:right !important;
+}
+
+th.rightish, td.rightish
+{
+	text-align:right !important;
+	padding-right:24px;
+}
+
+td.msg
+{
+	padding-left:12px !important;
+}
+
+.hidden
+{
+	display:none;
+}
+
+.popup_anon_form
+{
+	z-index:100;
+	display:none;
+}
+
+.refresh_link
+{
+	cursor:pointer;
+	float:left;
+}
+
+.sync_link
+{
+	cursor:pointer;
+	float:right;
+}
+
+.or_flag
+{
+	background-image:url(../images/gradback.jpg);
+	width:36px;
+	display:inline-block;
+	padding-right:4px;
+	text-align:right;
+}
+
+.mysql_dump
+{
+	border-collapse:collapse;
+}
+
+.mysql_dump th
+{
+	background:#164C76;
+	color:#FFFFFF;
+}
+
+.mysql_dump th, .mysql_dump td
+{
+	border:1px solid #333333;
+	padding:1px 5px;
+}
+
+table#log tr td
+{
+	font-size:12px;
+	padding:2px;
+}
+
+.launch_popup_anon_form
+{
+	cursor:pointer;
+	text-decoration:underline !important;
+	color:#0033AA;
+	/*
+	background: url("../images/anonymous_marking.gif") no-repeat scroll 0 0 transparent;
+    color: #333333;
+    cursor: pointer;
+    display: block;
+    font-size: 10.5px;
+    height: 14px;
+    margin: 3px 0;
+    min-height: 14px;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 180px;
+	*/
+}
+
+.popup_anon_form
+{
+	z-index:100;
+	width:474px;
+	height:256px;
+	border:1px solid #333333;
+	position:absolute;
+	top:33%;
+	left:40%;
+	background:#FFFFFF;
+}
+
+#anon_popup_close
+{
+	text-align:center;
+	cursor:pointer;
+}
+
+.dates_and_submissions, .file_information
+{
+	background:#DEDEDE;
+	border:1px solid #333333;
+	padding:10px;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.dates_and_submissions
+{
+	margin-bottom:12px;
+}
+
+.translated_report_error, .translated_report_na
+{
+	cursor:pointer;
+}
+
+#loading_bar
+{
+	text-align:center;
+	height:48px;
+	width:100%;
+	padding:24px 0;
+}
+
+#loading_bar_text, #saving_bar_text, #synching_bar_text
+{
+	font-size:20px;
+	text-align:center;
+}
+
+#synching_bar_view_submissions
+{
+	text-align:center;
+}
+
+#loading_bar, #loading_bar_text, #saving_bar_text, #synching_bar_text, #redirect_bar_link, #synching_bar_view_submissions
+{
+	display:none;
+}
+
+.ilFormRadioInfo {
+	width: 400px;
+}

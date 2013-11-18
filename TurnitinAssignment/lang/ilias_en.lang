@@ -1,0 +1,253 @@
+//
+// English Language File for TurnitinAssignmentObject Plugin
+//
+
+<!-- language file start -->
+no#:#No
+yes#:#Yes
+obj_xtii#:#Turnitin Assignment
+objs_xtii#:#Turnitin Assignments
+obj_xtii_duplicate#:#Copy
+objs_xtii_duplicate#:#Copy Turnitin Assignment
+obj_xtii_select#:#Select Turnitin Assignment
+xtii_add#:#Add Turnitin Assignment
+xtii_new#:#Add New Turnitin Assignment
+xtii_read#:#Read access to Turnitin Assignment
+xtii_write#:#Edit Turnitin Assignment
+xtii_delete#:#Delete Turnitin Assignment
+xtii_visible#:#Turnitin Assignment is visible
+xtii_edit_permission#:#Change permission settings
+crs_create_xtii#:#Create Turnitin Assignment
+grp_create_xtii#:#Create Turnitin Assignment
+fold_create_xtii#:#Create Turnitin Assignment
+root_create_xtii#:#Create Turnitin Assignment
+cat_create_xtii#:#Create Turnitin Assignment
+content#:#Content
+submissions#:#Submissions
+settings#:#Settings
+edit_settings#:#Edit Settings
+title#:#Title
+description#:#Description
+option_one#:#Option One
+option_two#:#Option Two
+point_value#:#Point Value
+start_date#:#Start Date
+end_date#:#End Date
+post_date#:#Post Date
+save#:#Save
+cancel#:#Cancel
+edit#:#Edit
+status#:#Status
+offline#:#Offline
+turnitin_assignment_plugin_configuration#:#Turnitin Assignment Plugin Configuration
+shared_key#:#Shared Key
+account_id#:#Account id
+config_saved#:#Turnitin Assignment configuration has been saved
+msg_creation_outwith_course_not_allowed#:#A Turnitin Assignment can only be created from within a course
+author#:#Author
+submission_title#:#Title
+similarity#:#Similarity
+grade#:#Grade
+response#:#Response
+file#:#File
+paper_id#:#Paper ID
+submission_date#:#Date
+submission_table_title#:#Submissions
+submit_paper#:#Submit Paper
+upload#:#Upload
+author_firstname#:#Author firstname
+author_surname#:#Author surname
+browse_file#:#Browse for the file to upload
+msg_paper_submitted#:#Paper has been submitted to Turnitin
+file_could_not_be_uploaded#:#Your file could not be uploaded or doesn't exist
+required_fields_empty#:#You have not filled out all the required fields
+delete_submissions#:#Delete submissions
+download_submissions#:#Download submissions
+msg_papers_deleted#:#The selected submissions have been deleted
+msg_papers_downloaded#:#The selected submissions have been downloaded
+due_date#:#Due date
+show_details#:#Show details
+no_submission#:#You have not made a submission to this assignment
+no_submission_yet#:#You have not made a submission to this assignment yet
+submission_made#:#You have already made a submission to this assignment
+submission_end_date_past#:#Submissions are no longer allowed to this assignment
+submission_status#:#Submission Status
+view_file#:#View File
+download_file#:#Download File
+grade_file#:#Grade File
+special_instructions#:#Special instructions
+report_generation_speed#:#Generate Originality Reports for student submissions
+immediately_first#:#Immediately (first report is final)
+immediately_overwrite#:#Immediately (can overwrite reports until the due date)
+on_due_date#:#On the due date
+late_submissions#:#Allow submissions after the due date
+resubmit_paper#:#Resubmit Paper
+resubmission_notice#:#You have already submitted a paper to this assignment. If you choose to resubmit your paper, your earlier submission will be replaced and if an originality report has already been generated you will NOT receive a new Originality Report until 24 hours from when this submission is made.
+dates_submissions_header#:#Dates and Submissions
+late_submissions_allowed#:#Late submissions are allowed
+late_submissions_not_allowed#:#Late submissions are not allowed
+resubmissions_allowed#:#Resubmissions are allowed
+resubmissions_not_allowed#:#Resubmissions are not allowed
+students_allowed_to_view_reports#:#Allow students to see Originality Reports
+originality_report#:#Originality Report
+originality_report_not_available#:#Your instructor has chosen to not allow students to view Originality Reports for this assignment. Please contact your instructor if you would like more information.
+view_grademark_report#:#View Grademark report
+exclude_type#:#Exclude small matches
+exclude_type_by_word#:#Exclude by word count
+exclude_type_by_percent#:#Exclude by percentage
+word_count#:#Word count
+percentage#:#Percentage (%)
+exclude_bibliography#:#Exclude bibliographic materials from Similarity Index for all papers in this assignment?
+exclude_bibliography_help#:#This setting allows the instructor to choose to exclude text appearing in the bibliography, works cited, or references sections of student papers from being checked for matches when generating Originality Reports. This setting can be overridden in individual Originality Reports.
+exclude_quoted_materials#:#Exclude quoted materials from Similarity Index for all papers in this assignment?
+exclude_quoted_materials_help#:#This setting allows the instructor to choose to exclude text appearing in the quotes from being checked for matches when generating Originality Reports. This setting can be overridden in individual Originality Reports.
+comparison_options#:#Resources to compare submitted papers with
+s_paper_check#:#other student papers
+internet_check#:#internet database
+journal_check#:#journals, periodicals and publications
+institution_check#:#other papers within institution
+tii_user_creation_error#:#User could not be created within Turnitin
+tii_duplicate_email#:#User could not be enrolled with Turnitin as email address needs to be unique and has already been enrolled - please contact tutor/administrator
+select_student#:#Select student
+configuration#:#Configuration
+tii_log#:#View log file
+tii_mysql_dump#:#View MySQL dump
+export_data#:#Export Data
+no_submissions_selected#:#Please select some submission data to export
+submission_data_exported#:#The submission data you selected has been exported
+synch_students#:#Enrol all course students with Turnitin
+synching#:#Synching
+close#:#Close
+sync_success#:#Student Synchronisation with Turnitin is complete
+sync_fail#:#There is a problem with Student Synchronisation with Turnitin
+sync_issue#:#Some of your users can not be synched with Turnitin as they are using an email address that you have already created an account for on Turnitin. To resolve this, make sure all your users have a unique email address or contact the administrator and get them to unlink any old users with that email address. Affected users:
+back_to_submissions#:#Go back to the submissions
+admin_statistics#:#Administrator Statistics
+messages#:#Announcements/Messages
+dates#:#Dates
+optional_settings#:#Optional Settings
+originality_report_settings#:#Originality Report Settings
+enable_erater_grammar_check#:#Enable e-rater&reg; grammar check?
+select_ets_handbook#:#Select ETS&reg; handbook
+advanced#:#Advanced
+high_school#:#High School
+middle_school#:#Middle School
+elementary#:#Elementary
+english_learners#:#English Learners
+select_english_dictionary#:#Select English Dictionary
+en_us#:#US English Dictionary
+en_gb#:#UK English Dictionary
+en_both#:# Both US and UK English Dictionary
+categories_enabled_default#:#Categories enabled by default
+erater_spelling#:#Spelling
+erater_grammar#:#Grammar
+erater_usage#:#Usage
+erater_mechanics#:#Mechanics
+erater_style#:#Style
+submit_papers_to#:#Submit papers to
+no_repository#:#No repository
+standard_repository#:#Standard repository
+institutional_repository#:#Institutional repository
+usr_id#:#User Id
+tii_usr_id#:#Turnitin User Id
+name#:#Name
+email#:#Email
+username#:#Username
+unlink_user#:#Unlink User
+link_relink_user#:#Link/Relink User
+export_user_data#:#Export user data
+users_table_title#:#Users
+users_unlinked#:#User(s) have been unlinked from Turnitin
+users_unlink_failure#:#User(s) could not be unlinked from Turnitin
+users_linked#:#User(s) have been linked to Turnitin
+users_link_failure#:#User(s) could not be linked to Turnitin
+unlink_all_users#:#Unlink all Users
+grademark#:#GradeMark
+ets#:#ETS e-rater grammar check
+anon_marking#:#Anonymous Marking
+api_url#:#API URL
+enable_features#:#Enable Features
+student_emails#:#Student emails
+instructor_emails#:#Tutor emails
+digital_receipts#:#Digital receipts
+translated_matching#:#Translated matching
+student_not_viewed#:#The student has not yet viewed this paper
+student_last_viewed#:#The student last viewed this paper on
+at#:#at
+anon_marking_enabled#:#Anonymous Marking Enabled
+reason_anon_marking_off#:#Please enter your reason for turning off Anonymous Marking for this paper.
+note_setting_permanent#:#Note: Administrator has access to this information and this setting is permanent
+turn_off_anon_marking#:#Turn off anonymous marking
+tii_un_re_link_users#:#Unlink/Relink users
+date_time#:#Date/Time
+fid#:#Function Id
+fcmd#:#Function Command
+rcode#:#Return code
+msg#:#Message
+setup_in_tii#:#You can setup or change this in Turnitin
+table_no_submission#:#no submission
+late#:#Late
+refresh_submissions#:#Refresh submissions
+noscript_warning#:#You do not have Javascript enabled on your browser, a number of essential aspects of Turnitin will not work without Javascript enabled
+test_connection#:#Test Turnitin Connection
+tii_connection_successful#:#Connection to Turnitin was successful
+tii_connection_failed#:#There is a problem connecting to Turnitin
+end_date_not_before_start#:#Due date can not be before start date
+posting_date_not_before_start#:#Post date can not be before start date
+point_value_must_be_int#:#The assignment must have an integer point value between 0 and 1000
+default_assignment_settings#:#Default Assignment Settings
+default_assignment_data_saved#:#Default Assignment data saved
+anon_docs_not_download#:#Anonymous documents are unavailable for download until the post date
+no_papers_selected#:#Please select some papers to download
+file_error_code#:#Upload Error Code
+not_yet_graded#:#Not yet graded
+no_students_enrolled#:#There are currently no students enrolled on this course
+enable_anon_marking#:#Enable Anonymous Marking
+enable_translated_matching#:#Enable Translated Matching
+translated_similarity#:#Translated Similarity
+translated_report_na#:#A translated report is not applicable for this assignment
+submission_format#:#Submission Format
+any#:#Any
+text#:#Text
+cut_and_paste_paper#:#Cut and paste paper text
+tii_instructors#:#Turnitin Instructors
+remove_tutor#:#Remove Tutor
+link_tutor_with_tii#:#Link Tutor with Turnitin
+add_tutor#:#Add Tutor
+select_tutor#:#Select Tutor
+tutor_removed#:#Tutor has been removed from this course in Turnitin - Please note you must have also removed them from the course in ILIAS first
+tutor_added#:#Tutor has been added to Turnitin for this course
+tutor_not_added#:#Tutor could not be linked to Turnitin
+download_all_submissions#:#Download All Submissions
+js_loading_text#:#Loading
+js_saving_text#:#Saving
+js_synching_text#:#Synching
+report_pending#:#Pending
+multi_instructors_intro_text#:#Please note you must also remove tutors from the course in ILIAS otherwise they can still access this assignment.
+here#:#here
+download_export_intro#:#Your download should start automatically, if it does not then please click
+eng_abbreviation#:#EN
+start_from#:#Start from
+until#:#Until
+export_logs#:#Export Logs
+export_mysql#:#Export MySQL dump
+mysql_dump_courses#:#Courses
+mysql_dump_title#:#Title
+mysql_dump_ilias_obj_id#:#ILIAS Object Id
+mysql_dump_ilias_ref_id#:#ILIAS Reference Id
+mysql_dump_turnitin_id#:#Turnitin Id
+mysql_dump_course_tutor_id#:#Course Tutor Id
+mysql_dump_course_tutor_tii_id#:#Course Tutor Turnitin Id
+mysql_dump_assignments#:#Assignments
+mysql_dump_ilias_course_ref_id#:#ILIAS Course Reference Id
+mysql_dump_submissions#:#Submissions
+mysql_dump_submission_ref_id#:#Submission Reference Id
+mysql_dump_submission_tii_id#:#Turnitin Submission Id
+mysql_dump_assignment_ref_id#:#Assignment Ref. Id
+mysql_dump_ilias_user_id#:#User Id
+mysql_dump_tii_user_id#:#Turnitin User Id
+mysql_dump_user_email#:#User Email
+mysql_dump_date_time#:#Date/Time
+please_provide_submission_text#:#Please provide text for your submission
+no_submission_until_start#:#You can not submit a paper to this assignment until the start date
+on#:#on

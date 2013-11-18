@@ -1,0 +1,7 @@
+Turnitin plugin for Ilias 4.2+
+
+Unzip the plugin and copy all the files to the following path: 
+
+Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment
+
+Go to the "Plugins, Modules and Services" section in ILIAS administration, the TurnitinAssignment plugin should be listed alongside the Plugin Slot: RepositoryObject and you can configure the plugin from there.

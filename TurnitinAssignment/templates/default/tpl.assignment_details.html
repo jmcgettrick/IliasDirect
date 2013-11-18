@@ -1,0 +1,83 @@
+<!-- BEGIN css_file -->
+<link rel="stylesheet" type="text/css" href="{CSS_FILE}" media="{CSS_MEDIA}" />
+<!-- END css_file -->
+<noscript>
+	<div class="noscript_warning">
+		{NOSCRIPT_WARNING}
+	</div>
+</noscript>
+<!-- BEGIN assignment_details -->
+<h2 class="top_heading">{TEXT_ASSIGNMENT_DETAILS_HEADER}</h2>
+<p>{TEXT_ASSIGNMENT_DETAILS}</p>
+<!-- END assignment_details -->
+<!-- BEGIN instructions -->
+<h2>{TEXT_INSTRUCTIONS_HEADER}</h2>
+<p>{TEXT_INSTRUCTIONS}</p>
+<!-- END instructions -->
+<div class="dates_and_submissions">
+	<h2>{TEXT_DATES_SUBMISSIONS_HEADER}</h2>
+	<!-- BEGIN late_submissions -->
+	<h3>{TEXT_LATE_SUBMISSIONS}</h3>
+	<!-- END late_submissions -->
+	<!-- BEGIN resubmissions -->
+	<h3>{TEXT_RESUBMISSIONS}</h3>
+	<!-- END resubmissions -->
+	<!-- BEGIN start_date -->
+	<h3>{LABEL_START_DATE}: {TEXT_START_DATE}</h3>
+	<!-- END start_date -->
+	<!-- BEGIN end_date -->
+	<h3>{LABEL_END_DATE}: {TEXT_END_DATE}</h3>
+	<!-- END end_date -->
+	<!-- BEGIN posting_date -->
+	<h3>{LABEL_POST_DATE}: {TEXT_POST_DATE}</h3>
+	<!-- END posting_date -->
+</div>
+<div class="file_information">
+	<!-- BEGIN submission_status -->
+	<p class="bold">{TEXT_SUBMISSION_STATUS}</p>
+	<!-- END submission_status -->
+	<!-- BEGIN submit_link -->
+	<p class="bold"><a href="{TEXT_SUBMIT_LINK}" title="{TEXT_SUBMIT_LINK_TEXT}">{TEXT_SUBMIT_LINK_TEXT}</a></p>
+	<!-- END submit_link -->
+	<!-- BEGIN download_button -->
+	<div>
+		<p>
+		{VIEW_FILE}: <a onclick="javascript:window.open('{LINK_VIEW_FILE}&paper_id={VAL_PAPER_ID}', '_blank')" title="{VIEW_FILE}"><img src="{TEMPLATE_DIR}/icon-file-blue.png" alt="{VIEW_FILE}" title="{VIEW_FILE}" /></a> 
+		/ 
+		<a onclick="javascript:window.open('{LINK_DOWNLOAD_FILE}&paper_id={VAL_PAPER_ID}', '_blank', 'height=100,width=300')" title="{DOWNLOAD_FILE}">{DOWNLOAD_FILE}</a>
+		</p>
+	</div>
+	<!-- END download_button -->
+	<!-- BEGIN originality_report -->
+	<div>
+		<p>{ORIGINALITY_REPORT}: 
+			<!-- BEGIN originality_report_not_available -->
+			{ORIGINALITY_REPORT_NOT_AVAILABLE}
+			<!-- END originality_report_not_available -->
+			<!-- BEGIN originality_report_pending -->
+			<span class="{HIDE_PENDING_REPORT}">
+				<a onclick="javascript:window.open('{LINK_ORIG_REPORT}&paper_id={VAL_PAPER_ID}', '_blank')" class="pending">
+					<span class="gen">{TEXT_PENDING_REPORT}</span>
+				</a>
+			</span>
+			<!-- END originality_report_pending -->
+			<!-- BEGIN originality_report_score -->
+			<span class="{HIDE_SCORE}">
+				<a onclick="javascript:window.open('{LINK_ORIG_REPORT}&paper_id={VAL_PAPER_ID}', '_blank')">
+					<span class="score">
+						{VAL_ORIG_REPORT_SCORE}%
+					</span>
+					<span class="or_flag" style="background-position:0% {VAL_ORIG_REPORT_SCORE}%">&nbsp;{VAL_LNG_OVERLAY_TEXT}</span>
+				</a>
+			</span>
+			<!-- END originality_report_score -->
+	</div>
+	<!-- END originality_report -->
+	<!-- BEGIN grade_mark -->
+	<div>
+		<p>{GRADE_HEADER}: <span>{VAL_GRADE_SCORE} / {VALUE_MAX_GRADE} - <a class="grade" onclick="javascript:window.open('{LINK_GRADEMARK}&paper_id={VAL_PAPER_ID}', '_blank')" title="{VIEW_GRADEMARK_REPORT}">
+				{VIEW_GRADEMARK_REPORT}</a></span>
+			</p>
+	</div>
+	<!-- END grade_mark -->
+</div>

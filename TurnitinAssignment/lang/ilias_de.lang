@@ -1,0 +1,253 @@
+//
+// German Language File for TurnitinAssignmentObject Plugin
+//
+
+<!-- language file start -->
+no#:#Nein
+yes#:#Ja
+obj_xtii#:#Turnitin-Aufgabe
+objs_xtii#:#Turnitin-Aufgaben
+obj_xtii_duplicate#:#Kopieren
+objs_xtii_duplicate#:#Turnitin-Aufgabe kopieren
+obj_xtii_select#:#Turnitin-Aufgabe auswählen
+xtii_add#:#Turnitin-Aufgabe hinzufügen
+xtii_new#:#Neue Turnitin-Aufgabe hinzufügen
+xtii_read#:#Zugriff auf Turnitin-Aufgabe lesen
+xtii_write#:#Turnitin-Aufgabe bearbeiten
+xtii_delete#:#Turnitin-Aufgabe löschen
+xtii_visible#:#Turnitin-Aufgabe wird angezeigt
+xtii_edit_permission#:#Einstellungen zur Erlaubnis ändern
+crs_create_xtii#:#Turnitin-Aufgabe erstellen
+grp_create_xtii#:#Turnitin-Aufgabe erstellen
+fold_create_xtii#:#Turnitin-Aufgabe erstellen
+root_create_xtii#:#Turnitin-Aufgabe erstellen
+cat_create_xtii#:#Turnitin-Aufgabe erstellen
+content#:#Inhalt
+submissions#:#Einreichungen
+settings#:#Einstellungen
+edit_settings#:#Einstellungen bearbeiten
+title#:#Titel
+description#:#Beschreibung
+option_one#:#Option eins
+option_two#:#Option zwei
+point_value#:#Punktwert
+start_date#:#Startdatum
+end_date#:#Fälligkeitsdatum
+post_date#:#Veröffentlichungsdatum
+save#:#Speichern
+cancel#:#Abbrechen
+edit#:#Bearbeiten
+status#:#Status
+offline#:#Offline
+turnitin_assignment_plugin_configuration#:#Die Konfiguration für das Plugin der Turnitin-Aufgaben wurde gespeichert
+shared_key#:#Shared Key
+account_id#:#Account-ID
+config_saved#:#Die Turnitin-Konfiguration für die Aufgabe wurde gespeichert
+msg_creation_outwith_course_not_allowed#:#Eine Turnitin-Aufgabe kann nur innerhalb eines Kurses erstellt werden
+author#:#Verfasser
+submission_title#:#Titel
+similarity#:#Ähnlichkeit
+grade#:#Note
+response#:#Antwort
+file#:#Datei
+paper_id#:#Arbeits-ID
+submission_date#:#Datum
+submission_table_title#:#Einreichungen
+submit_paper#:#Arbeit einreichen
+upload#:#Hochladen
+author_firstname#:#Vorname Verfasser
+author_surname#:#Nachname Verfasser
+browse_file#:#Nach hochzuladender Datei durchsuchen
+msg_paper_submitted#:#Arbeit wurde bei Turnitin eingereicht
+file_could_not_be_uploaded#:#Ihre Arbeit konnte nicht hochgeladen werden oder ist nicht vorhanden
+required_fields_empty#:#Sie müssen die erforderlichen Felder ausfüllen
+delete_submissions#:#Einreichungen löschen
+download_submissions#:#Einreichungen hochladen
+msg_papers_deleted#:#Die ausgewählten Einreichungen wurden gelöscht
+msg_papers_downloaded#:#Die ausgewählten Einreichungen wurden heruntergeladen
+due_date#:#Fälligkeitsdatum
+show_details#:#Details anzeigen
+no_submission#:#Sie haben zu dieser Aufgabe keine Einreichung vorgenommen
+no_submission_yet#:#Sie haben zu dieser Aufgabe noch keine Einreichung vorgenommen
+submission_made#:#Sie haben zu dieser Aufgabe bereits eine Einreichung vorgenommen
+submission_end_date_past#:#Einreichungen zu dieser Aufgabe sind nicht länger zulässig
+submission_status#:#Status der Einreichung
+view_file#:#Datei anzeigen
+download_file#:#Datei herunterladen
+grade_file#:#Datei benoten
+special_instructions#:#Besondere Anleitungen
+report_generation_speed#:#Echtheitsberichte für die Mitgliedereinreichungen erzeugen
+immediately_first#:#Sofort (erster Bericht ist endgültig)
+immediately_overwrite#:#Sofort (kann Berichte bis zum Fälligkeitsdatum überschreiben)
+on_due_date#:#Am Fälligkeitsdatum
+late_submissions#:#Arbeiten nach dem Fälligkeitsdatum zulassen
+resubmit_paper#:#Arbeit erneut einreichen
+resubmission_notice#:#Sie haben schon eine Arbeit zu dieser Aufgabe eingereicht.  Wenn Sie Ihre Arbeit erneut einreichen, wird die neue die vorherige Einreichung ersetzen. Falls bereits ein Echtheitsbericht erstellt wurde, erhalten Sie den neuen Echtheitsbericht erst 24 Stunden nach der Einreichung.
+dates_submissions_header#:#Daten und Einreichungen
+late_submissions_allowed#:#Verspätete Einreichungen zulassen
+late_submissions_not_allowed#:#Verspätete Einreichungen sind nicht zulässig
+resubmissions_allowed#:#Erneute Einreichungen sind zulässig
+resubmissions_not_allowed#:#Erneute Einreichungen sind nicht zulässig
+students_allowed_to_view_reports#:#Mitglieder das Anzeigen von Echtheitsberichten gestatten
+originality_report#:#Echtheitsbericht
+originality_report_not_available#:#Ihre Lehrkraft hat entschieden, dass Mitglieder für diese Aufgabe keine Echtheitsberichte anzeigen können. Bitte setzen Sie sich mit Ihrer Lehrkraft in Verbindung, wenn Sie weitere Informationen erhalten möchten.
+view_grademark_report#:#GradeMark-Bericht anzeigen
+exclude_type#:#Geringfügige Übereinstimmungen ausschließen
+exclude_type_by_word#:#Ausschließen nach Wortanzahl
+exclude_type_by_percent#:#Ausschließen nach Prozent
+word_count#:#Wortanzahl
+percentage#:#Prozent (%)
+exclude_bibliography#:#Bibliografisches Material vom Ähnlichkeitsindex für alle Arbeiten zu dieser Aufgabe ausschließen?
+exclude_bibliography_help#:#Mit dieser Einstellung kann die Lehrkraft wählen, ob Textstellen aus Bibliografien, zitierten Arbeiten oder Referenzabschnitte von Studentenarbeiten bei der Prüfung von Übereinstimmungen zum Erstellen von Echtheitsberichten ausgeschlossen werden. Diese Einstellung kann bei einzelnen Echtheitsberichten aufgehoben werden.
+exclude_quoted_materials#:#Zitate vom Ähnlichkeitsindex für alle Arbeiten zu dieser Aufgabe ausschließen?
+exclude_quoted_materials_help#:#Mit dieser Einstellung kann die Lehrkraft in Anführungszeichen gesetzten Text von den beim Erstellen von Echtheitsberichten angezeigten Übereinstimmungen ausschließen. Diese Einstellung kann bei einzelnen Echtheitsberichten aufgehoben werden.
+comparison_options#:#Quellen zum Abgleich mit der eingereichten Arbeit
+s_paper_check#:#Andere Mitgliederarbeiten
+internet_check#:#Internet-Datenbank
+journal_check#:#Fachzeitschriften, Periodika und Publikationen
+institution_check#:#Andere Arbeiten innerhalb von Turnitin
+tii_user_creation_error#:#Benutzer konnte in Turnitin nicht erstellt werden
+tii_duplicate_email#:#Benutzer konnte in Turnitin nicht eingeschrieben werden, da die E-Mail-Adresse eindeutig sein muss und schon eingeschrieben ist - bitte kontaktieren Sie den Tutor/Administrator
+select_student#:#Mitglied auswählen
+configuration#:#Konfiguration
+tii_log#:#Log-Datei anzeigen
+tii_mysql_dump#:#MySQL Speicherauszug anzeigen
+export_data#:#Daten exportieren
+no_submissions_selected#:#Bitte wählen Sie  zum Exportieren Einreichungsdaten
+submission_data_exported#:#Die von Ihnen ausgewählten Einreichungsdaten wurden exportiert
+synch_students#:#Alle Mitglieder des Kurses bei Turnitin einschreiben
+synching#:#Synchronisieren
+close#:#Schließen
+sync_success#:#Mitgliedersynchronisation mit Turnitin ist abgeschlossen
+sync_fail#:#Bei der Mitgliedersynchronisation mit Turnitin ist ein Problem aufgetreten
+sync_issue#:#Einige Benutzer können nicht mit Turnitin synchronisiert werden, da sie eine E-Mail-Adresse nutzen, für den Sie bereits einen Account in Turnitin eingerichtet haben. Zum Beheben dieses Problem prüfen Sie#:# ob alle Ihre Benutzer eine eindeutige E-Mail-Adresse haben oder kontaktieren Sie den Administrator und bitten Sie ihn, die alten, mit der E-Mail-Adresse verbundenen Benutzer zu trennen. Betroffene Benutzer:
+back_to_submissions#:#Zurück zu den Einreichungen
+admin_statistics#:#Statistik Administratoren
+messages#:#Ankündigungen/Nachrichten
+dates#:#Daten
+optional_settings#:#Optionale Einstellungen
+originality_report_settings#:#Einstellungen für Echtheitsbericht
+enable_erater_grammar_check#:#e-rater&reg; Grammatikprüfung aktivieren?
+select_ets_handbook#:#ETS&reg; Handbuch auswählen
+advanced#:#Erweitert
+high_school#:#Oberstufe
+middle_school#:#Mittelstufe
+elementary#:#Grundschule
+english_learners#:#Englisch Lernende
+select_english_dictionary#:#Englisches Wörterbuch wählen
+en_us#:#Wörterbuch für US-amerikanisches Englisch
+en_gb#:#Wörterbuch für britisches Englisch
+en_both#:#Wörterbuch für US-amerikanisches und britisches Englisch
+categories_enabled_default#:#Kategorien standardmäßig aktivieren
+erater_spelling#:#Rechtschreibung
+erater_grammar#:#Grammatik
+erater_usage#:#Wortwahl
+erater_mechanics#:#Funktionsweise
+erater_style#:#Stil
+submit_papers_to#:#Arbeit einreichen zu
+no_repository#:#keine Arbeitsablage
+standard_repository#:#Standardarbeitsablage
+institutional_repository#:#Institutionsablage
+usr_id#:#Benutzer-ID
+tii_usr_id#:#Turnitin-Benutzer-ID
+name#:#Name
+email#:#E-Mail
+username#:#Benutzername
+unlink_user#:#Benutzer trennen
+link_relink_user#:#Benutzer verbinden/erneut verbinden
+export_user_data#:#Benutzerdaten exportieren
+users_table_title#:#Benutzer
+users_unlinked#:#Benutzer wurde(n) von Turnitin getrennt
+users_unlink_failure#:#Benutzer konnten nicht von Turnitin getrennt werden
+users_linked#:#Benutzer wurden mit Turnitin verbunden
+users_link_failure#:#Benutzer konnten nicht mit Turnitin verbunden werden
+unlink_all_users#:#Alle Benutzer trennen
+grademark#:#GradeMark
+ets#:#ETS e-rater Grammatikprüfung
+anon_marking#:#Anonymes Markieren
+api_url#:#API URL
+enable_features#:#Funktionen aktivieren
+student_emails#:#Mitglieder-E-Mails
+instructor_emails#:#Tutoren-E-Mails
+digital_receipts#:#Digitaler Beleg
+translated_matching#:#Übersetzte Übereinstimmung
+student_not_viewed#:#Der Mitglied hat die Arbeit noch nicht angezeigt
+student_last_viewed#:#Der Mitglied hat die Arbeit angezeigt am
+at#:#Bei
+anon_marking_enabled#:#Anonymes Markieren aktivieren
+reason_anon_marking_off#:#Bitte begründen Sie, warum Sie Anonymes Markieren bei dieser Aufgabe deaktivieren möchten.
+note_setting_permanent#:#Hinweis: Der Administrator hat Zugang zu dieser Information und diese Einstellung ist endgültig
+turn_off_anon_marking#:#Anonymes Markieren deaktivieren
+tii_un_re_link_users#:#Benutzer verbinden/erneut verbinden
+date_time#:#Datum/Zeit
+fid#:#Funktions-ID
+fcmd#:#Funktionsbefehl
+rcode#:#Return Code
+msg#:#Nachricht
+setup_in_tii#:#Sie können dies in Turnitin einrichten oder ändern
+table_no_submission#:#Keine Einreichung
+late#:#Verspätet
+refresh_submissions#:#Einreichungen aktualisieren
+noscript_warning#:#Sie haben Javascript in Ihrem Browser nicht aktiviert, eine bedeutende Menge an  wesentlichen Aspekten von  Turnitin funktioniert nur, wenn Javascript aktiviert ist.
+test_connection#:#Verbindung mit Turnitin prüfen
+tii_connection_successful#:#Verbindung mit Turnitin war erfolgreich
+tii_connection_failed#:#Es sind Probleme bei der Verbindung mit Turnitin aufgetreten
+end_date_not_before_start#:#Das Fälligkeitsdatum darf nicht vor dem Startdatum liegen
+posting_date_not_before_start#:#Das Veröffentlichungsdatum darf nicht vor dem Startdatum liegen
+point_value_must_be_int#:#Die Aufgabe muss eine ganze Zahl mit einem Wert zwischen 0 und 1000 haben
+default_assignment_settings#:#Standard-Aufgabeneinstellungen
+default_assignment_data_saved#:#Standard-Aufgabendaten gespeichert
+anon_docs_not_download#:#Anonyme Dokumenten stehen erst ab dem Veröffentlichungsdatum zum Herunterladen zur Verfügung
+no_papers_selected#:#Bitte wählen Sie Arbeiten zum Herunterladen aus
+file_error_code#:#Fehler-Code hochladen
+not_yet_graded#:#Noch nicht benotet
+no_students_enrolled#:#In diesen Kurs sind derzeit keine Mitglieder eingeschrieben
+enable_anon_marking#:#Anonymes Markieren aktivieren
+enable_translated_matching#:#Übersetzte Übereinstimmung aktivieren
+translated_similarity#:#Übersetzte Ähnlichkeit
+translated_report_na#:#Ein übersetzter Bericht ist für diese Aufgabe nicht abrufbar
+submission_format#:#Einreichungsformat
+any#:#Alle
+text#:#Text
+cut_and_paste_paper#:#Arbeitstext ausschneiden und einfügen
+tii_instructors#:#Turnitin-Administratoren
+remove_tutor#:#Tutor entfernen
+link_tutor_with_tii#:#Tutor mit Turnitin verbinden
+add_tutor#:#Tutor hinzufügen
+select_tutor#:#Tutor auswählen
+tutor_removed#:#Der Tutor wurde aus dem Kurs in Turnitin entfernt - Bitte beachten Sie, dass Sie ihn zuerst aus dem Kurs in ILIAS entfernen müssen.
+tutor_added#:#Tutor wurde für diesen Kurs bei Turnitin hinzugefügt
+tutor_not_added#:#Tutor konnte nicht mit Turnitin verbunden werden
+download_all_submissions#:#Alle Einreichungen herunterladen
+js_loading_text#:#Ladend
+js_saving_text#:#Sichern
+js_synching_text#:#Synchronisieren
+report_pending#:#Ausstehend
+multi_instructors_intro_text#:#Bitte beachten Sie, dass die Tutoren auch aus den Kursen in ILIAS entfernt werden müssen, da sie andernfalls noch Zugriff auf diese Aufgabe haben.
+here#:#Hier
+download_export_intro#:#Ihr Download erfolgt automatisch. Falls nicht, klicken Sie bitte hier
+eng_abbreviation#:#EN
+start_from#:#Start von
+until#:#Bis
+export_logs#:#Logs exportieren
+export_mysql#:#MySQL Speicherauszug exportieren
+mysql_dump_courses#:#Kurse
+mysql_dump_title#:#Titel
+mysql_dump_ilias_obj_id#:#ILIAS-Objekt-ID
+mysql_dump_ilias_ref_id#:#ILIAS-Referenz-ID
+mysql_dump_turnitin_id#:#Turnitin-ID
+mysql_dump_course_tutor_id#:#ID Kurstutor
+mysql_dump_course_tutor_tii_id#:#Turnitin-ID Kurstutor
+mysql_dump_assignments#:#Aufgaben
+mysql_dump_ilias_course_ref_id#:#ILIAS-Kursreferenz-ID
+mysql_dump_submissions#:#Einreichungen
+mysql_dump_submission_ref_id#:#Einreichungsreferenz-ID
+mysql_dump_submission_tii_id#:#ID Turnitin-Einreichung
+mysql_dump_assignment_ref_id#:#Ref.-ID für Aufgabe
+mysql_dump_ilias_user_id#:#Benutzer-ID
+mysql_dump_tii_user_id#:#Turnitin-Benutzer-ID
+mysql_dump_user_email#:#Benutzer-E-Mail
+mysql_dump_date_time#:#Datum/Zeit
+please_provide_submission_text#:#Bitte geben Sie Text für Ihre Einreichung
+no_submission_until_start#:#Sie können keine Arbeit einreichen für diese Aufgabe bis das Startdatum.
+on#:#am
