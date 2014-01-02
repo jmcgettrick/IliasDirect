@@ -53,7 +53,7 @@ class ilObjTurnitinAssignmentAccess extends ilObjectPluginAccess
 	function _checkAccess($a_cmd, $a_permission, $a_ref_id, $a_obj_id, $a_user_id = "")
 	{
 		global $ilUser, $ilAccess;
-                
+
                 if ($a_user_id == "")
 		{
 			$a_user_id = $ilUser->getId();
@@ -72,72 +72,72 @@ class ilObjTurnitinAssignmentAccess extends ilObjectPluginAccess
 
 		return true;
 	}
-	
+
 	/**
 	* Check online status of example object
 	*/
 	static function checkOnline($a_id)
 	{
 		global $ilDB;
-		
+
 		$set = $ilDB->query("SELECT is_online FROM rep_robj_xtii_assnment ".
 			" WHERE id = ".$ilDB->quote($a_id, "integer")
 			);
 		$rec  = $ilDB->fetchAssoc($set);
 		return (boolean) $rec["is_online"];
 	}
-        
-    static function getStartDate($a_id) 
+
+    static function getStartDate($a_id)
 	{
 		global $ilDB;
-		
+
 		$set = $ilDB->query("SELECT start_date FROM rep_robj_xtii_assnment ".
 			" WHERE id = ".$ilDB->quote($a_id, "integer")
 			);
 		$rec = $ilDB->fetchAssoc($set);
 		return $rec["start_date"];
 	}
-		
+
 	static function getEndDate($a_id)
 	{
 		global $ilDB;
-		
+
 		$set = $ilDB->query("SELECT end_date FROM rep_robj_xtii_assnment ".
 			" WHERE id = ".$ilDB->quote($a_id, "integer")
 			);
 		$rec = $ilDB->fetchAssoc($set);
 		return $rec["end_date"];
 	}
-	
+
 	static function getPostDate($a_id)
 	{
 		global $ilDB;
-		
+
 		$set = $ilDB->query("SELECT posting_date FROM rep_robj_xtii_assnment ".
 			" WHERE id = ".$ilDB->quote($a_id, "integer")
 			);
 		$rec = $ilDB->fetchAssoc($set);
 		return $rec["posting_date"];
 	}
-	
+
 	static function getPointValue($a_id)
 	{
 		global $ilDB;
-		
+
 		$set = $ilDB->query("SELECT point_value FROM rep_robj_xtii_assnment ".
 			" WHERE id = ".$ilDB->quote($a_id, "integer")
 			);
 		$rec = $ilDB->fetchAssoc($set);
 		return $rec["point_value"];
 	}
-	
+
 	static function checkSubmission($usr_id, $a_id)
 	{
 		global $ilUser, $ilDB;
-		
+
 		include_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/classes/class.ilObjTurnitinAssignment.php");
 		$tii_usr_id = ilObjTurnitinAssignment::getTiiUserId($usr_id);
-		
+
 		if ($tii_usr_id != 0)
 		{
 			$query = $ilDB->query("SELECT P.tii_paper_id, P.submission_date_time, C.tii_course_id, C.tii_course_title, A.tii_assignment_title, A.tii_assign_id".
@@ -147,9 +147,9 @@ class ilObjTurnitinAssignmentAccess extends ilObjectPluginAccess
 				" WHERE A.id = ".$ilDB->quote($a_id, "integer").
 				" AND P.usr_id = ".$ilDB->quote($usr_id, "integer")
 				);
-			
+
 			$rec = $ilDB->fetchAssoc($query);
-		
+
 			$tii_vars = array(
 					"oid" => $rec["tii_paper_id"],
 					"uid" => $tii_usr_id,
@@ -174,13 +174,13 @@ class ilObjTurnitinAssignmentAccess extends ilObjectPluginAccess
 			return false;
 		}
 	}
-	
+
 	static function getGrade($usr_id, $a_id)
 	{
 		global $ilUser, $ilDB;
-		
+
 		$tii_usr_id = ilObjTurnitinAssignment::getTiiUserId($usr_id);
-		
+
 		if ($tii_usr_id != 0)
 		{
 			$query = $ilDB->query("SELECT P.tii_paper_id, C.tii_course_id, C.tii_course_title, A.tii_assignment_title, A.tii_assign_id".
@@ -191,7 +191,7 @@ class ilObjTurnitinAssignmentAccess extends ilObjectPluginAccess
 				" AND P.usr_id = ".$ilDB->quote($usr_id, "integer")
 				);
 			$rec = $ilDB->fetchAssoc($query);
-		
+
 			$tii_vars = array(
 					"oid" => $rec["tii_paper_id"],
 					"uid" => $tii_usr_id,
@@ -208,12 +208,12 @@ class ilObjTurnitinAssignmentAccess extends ilObjectPluginAccess
 			include_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/classes/class.ilTurnitinAssignmentTiiCall.php");
 			$tii_call = new ilTurnitinAssignmentTiiCall();
 			$tii_response = $tii_call->tiiCall("10", "2", $tii_vars);
-			
-                        if ($tii_response["object"][$usr_id]["score"] == "") {
-                            return "";
-                        } else {
-                            return (int)$tii_response["object"][$usr_id]["score"];
-                        }
+
+            if ($tii_response["object"][$usr_id]["score"] == "") {
+                return "";
+            } else {
+                return (int)$tii_response["object"][$usr_id]["score"];
+            }
 		}
 		else
 		{

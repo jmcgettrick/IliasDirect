@@ -232,10 +232,10 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 			$ilTabs->addTab("submissions", $this->txt("submissions"), $ilCtrl->getLinkTarget($this, "showSubmissions"));
 		}
 
-		// tab for the "show details" command
+		// tab for the "show details" command - renamed to submissions
 		if ($this->object->course_details["isMember"] == true)
 		{
-			$ilTabs->addTab("details", $this->txt("show_details"), $ilCtrl->getLinkTarget($this, "showDetails"));
+			$ilTabs->addTab("details", $this->txt("submissions"), $ilCtrl->getLinkTarget($this, "showDetails"));
 		}
 
 		// tab for standard info screen
@@ -244,33 +244,6 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		$end_date = $this->object->getVar("end_date");
                 $start_date = $this->object->getVar("start_date");
 		$course_details =  $this->object->getVar("course_details");
-		// tab for the "submit paper" command
-		if (
-			(
-				($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true)
-				&&
-				(
-					count($this->object->getVar("unsubmitted_students")) > 0 || $this->object->number_of_unsubmitted_students > 0
-					|| ($this->object->getVar("generation_speed") != "0" && count($course_details["students"]) > 0)
-				)
-				&&
-				(
-					strtotime($end_date["date"]." ".$end_date["time"]) > time() || $this->object->getVar("late_submission")
-				)
-			)
-			||
-			($this->object->course_details["isMember"] == true && $this->object->checkIfSubmissionAllowed($ilUser->getId())
-                                && strtotime($start_date["date"]." ".$start_date["time"]) < time())
-			)
-		{
-			$tab_heading = $this->txt("submit_paper");
-
-			if (($this->object->course_details["isMember"] == true) && !empty($this->object->submissions[$ilUser->getId()]["objectID"]))
-			{
-				$tab_heading = $this->txt("resubmit_paper");
-			}
-			$ilTabs->addTab("submit", $tab_heading, $ilCtrl->getLinkTarget($this, "submitPaper"));
-		}
 
 		// tab for "settings"
 		if ($ilAccess->checkAccess("write", "", $this->object->getRefId()))
@@ -746,9 +719,11 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 			foreach ($comparison_checks as $check)
 			{
 				$value = 0;
-				if (in_array($check, $this->form->getInput("paper_compare")))
-				{
-					$value = 1;
+				if (is_array($this->form->getInput("paper_compare"))) {
+					if (in_array($check, $this->form->getInput("paper_compare")))
+					{
+						$value = 1;
+					}
 				}
 				$this->object->setVar($check, $value);
 			}
@@ -817,191 +792,190 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		$details = new ilTemplate("tpl.assignment_details.html", true, true, "Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment");
 		$details->setVariable("NOSCRIPT_WARNING", $this->txt("noscript_warning"));
 
-                // Show description
-                if ($this->object->getLongDescription() == "")
-                {
-                        $details->removeBlockData("assignment_details");
-                }
-                else
-                {
-                        $details->setVariable("TEXT_ASSIGNMENT_DETAILS_HEADER", $this->txt("description"));
-                        $details->setVariable("TEXT_ASSIGNMENT_DETAILS", $this->object->getLongDescription());
-                }
+        // Show description
+        if ($this->object->getLongDescription() == "")
+        {
+            $details->removeBlockData("assignment_details");
+        }
+        else
+        {
+            $details->setVariable("TEXT_ASSIGNMENT_DETAILS_HEADER", $this->txt("description"));
+            $details->setVariable("TEXT_ASSIGNMENT_DETAILS", $this->object->getLongDescription());
+        }
 
-                // Show instructions
-                if (trim($this->object->getVar("instructions")) == "")
-                {
-                        $details->removeBlockData("instructions");
-                }
-                else
-                {
-                        $details->setVariable("TEXT_INSTRUCTIONS_HEADER", $this->txt("special_instructions"));
-                        $details->setVariable("TEXT_INSTRUCTIONS", $this->object->getVar("instructions"));
-                }
+        // Show instructions
+        if (trim($this->object->getVar("instructions")) == "")
+        {
+            $details->removeBlockData("instructions");
+        }
+        else
+        {
+            $details->setVariable("TEXT_INSTRUCTIONS_HEADER", $this->txt("special_instructions"));
+            $details->setVariable("TEXT_INSTRUCTIONS", $this->object->getVar("instructions"));
+        }
 
-                // Show dates
-                $details->setVariable("TEXT_DATES_SUBMISSIONS_HEADER", $this->txt("dates_submissions_header"));
+        // Show dates
+        $start_date_time = $this->object->getVar("start_date");
+        $details->setVariable("LABEL_START_DATE", $this->txt("start_date"));
+        $start_date = ilDatePresentation::formatDate(new ilDateTime(strtotime($start_date_time["time"]." ".$start_date_time["date"]),IL_CAL_UNIX));
+        $details->setVariable("TEXT_START_DATE", $start_date);
 
-                if ($this->object->getVar("generation_speed") == "1")
-                {
-                        $details->setVariable("TEXT_LATE_SUBMISSIONS", $this->txt("resubmissions_allowed"));
-                }
-                else
-                {
-                        $details->setVariable("TEXT_LATE_SUBMISSIONS", $this->txt("resubmissions_not_allowed"));
-                }
+        $end_date_time = $this->object->getVar("end_date");
+        $details->setVariable("LABEL_END_DATE", $this->txt("end_date"));
+        $end_date = ilDatePresentation::formatDate(new ilDateTime(strtotime($end_date_time["time"]." ".$end_date_time["date"]),IL_CAL_UNIX));
+        $details->setVariable("TEXT_END_DATE", $end_date);
 
-                if ($this->object->getVar("late_submission"))
-                {
-                        $details->setVariable("TEXT_RESUBMISSIONS", $this->txt("late_submissions_allowed"));
-                }
-                else
-                {
-                        $details->setVariable("TEXT_RESUBMISSIONS", $this->txt("late_submissions_not_allowed"));
-                }
+        $posting_date_time = $this->object->getVar("posting_date");
+        $details->setVariable("LABEL_POST_DATE", $this->txt("post_date"));
+        $posting_date = ilDatePresentation::formatDate(new ilDateTime(strtotime($posting_date_time["time"]." ".$posting_date_time["date"]),IL_CAL_UNIX));
+        $details->setVariable("TEXT_POST_DATE", $posting_date);
 
-                $start_date_time = $this->object->getVar("start_date");
-                $details->setVariable("LABEL_START_DATE", $this->txt("start_date"));
-                $start_date = ilDatePresentation::formatDate(new ilDateTime(strtotime($start_date_time["time"]." ".$start_date_time["date"]),IL_CAL_UNIX));
-                $details->setVariable("TEXT_START_DATE", $start_date);
+        // Show resubmission and late submission rules
+        $details->setVariable("TEXT_DATES_SUBMISSIONS_HEADER", $this->txt("dates_submissions_header"));
+        if ($this->object->getVar("late_submission"))
+        {
+            $details->setVariable("TEXT_LATE_SUBMISSIONS", $this->txt("late_submissions_allowed"));
+        }
+        else
+        {
+            $details->setVariable("TEXT_LATE_SUBMISSIONS", $this->txt("late_submissions_not_allowed"));
+        }
 
-                $end_date_time = $this->object->getVar("end_date");
-                $details->setVariable("LABEL_END_DATE", $this->txt("end_date"));
-                $end_date = ilDatePresentation::formatDate(new ilDateTime(strtotime($end_date_time["time"]." ".$end_date_time["date"]),IL_CAL_UNIX));
-                $details->setVariable("TEXT_END_DATE", $end_date);
+        if ($this->object->getVar("generation_speed") > 0 && strtotime($end_date_time["date"]." ".$end_date_time["time"]) > time())
+        {
+            $details->setVariable("TEXT_RESUBMISSIONS", $this->txt("resubmissions_allowed"));
+        }
+        else
+        {
+            $details->setVariable("TEXT_RESUBMISSIONS", $this->txt("resubmissions_not_allowed"));
+        }
 
-                $posting_date_time = $this->object->getVar("posting_date");
-                $details->setVariable("LABEL_POST_DATE", $this->txt("post_date"));
-                $posting_date = ilDatePresentation::formatDate(new ilDateTime(strtotime($posting_date_time["time"]." ".$posting_date_time["date"]),IL_CAL_UNIX));
-                $details->setVariable("TEXT_POST_DATE", $posting_date);
-
-                if (strtotime($start_date_time["date"]." ".$start_date_time["time"]) > time())
-                {
-                    $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("submission_until_start"));
-                    $details->removeBlockData("submit_link");
-                }
-                else
-                {
-                    if ($this->object->checkIfSubmissionAllowed($ilUser->getId()))
-                    {
-                        $submission_date = ilDatePresentation::formatDate(new ilDateTime(strtotime(
-                                                $this->object->submissions[$ilUser->getId()]["date_submitted"]),IL_CAL_UNIX));
-
-                        if (empty($this->object->submissions[$ilUser->getId()]))
-                        {
-                            $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("no_submission_yet"));
-                            $tab_heading = $this->txt("submit_paper");
-                        }
-                        else
-                        {
-                            $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("submission_made")." ".$this->txt("on")." ".$submission_date);
-                            $tab_heading = $this->txt("resubmit_paper");
-                        }
-
-                        $details->setVariable("TEXT_SUBMIT_LINK", $ilCtrl->getLinkTarget($this, "submitPaper"));
-                        $details->setVariable("TEXT_SUBMIT_LINK_TEXT", $tab_heading);
-                    }
-                    else
-                    {
-                            $details->removeBlockData("submit_link");
-                            if (empty($this->object->submissions[$ilUser->getId()]))
-                            {
-                                    $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("submission_end_date_past"));
-                            }
-                            else
-                            {
-                                    $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("submission_made"));
-                            }
-                    }
-                }
-
+        if (strtotime($start_date_time["date"]." ".$start_date_time["time"]) > time())
+        {
+            $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("no_submission_until_start"));
+            $details->removeBlockData("submit_link");
+        }
+        else
+        {
+        	if ($this->object->checkIfSubmissionAllowed($ilUser->getId()))
+            {
+                $submission_date = ilDatePresentation::formatDate(new ilDateTime(strtotime(
+                                        $this->object->submissions[$ilUser->getId()]["date_submitted"]),IL_CAL_UNIX));
                 if (empty($this->object->submissions[$ilUser->getId()]))
                 {
-                        $details->removeBlockData("download_button");
+                    $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("no_submission_yet"));
+                    $submit_text = $this->txt("submit_paper");
                 }
                 else
                 {
-                        // Show View and Download links
-                        $details->setVariable("LINK_VIEW_FILE", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "viewSubmission"));
-                        $details->setVariable("LINK_DOWNLOAD_FILE", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "downloadSubmission"));
-                        $details->setVariable("VAL_PAPER_ID", $this->object->submissions[$ilUser->getId()]["objectID"]);
-                        $details->setVariable("TEMPLATE_DIR", "Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/images");
-                        $details->setVariable("VIEW_FILE", $this->txt("view_file"));
-                        $details->setVariable("DOWNLOAD_FILE", $this->txt("download_file"));
-
-                        $posting_date = $this->object->getVar("posting_date");
-                        $posting_date = strtotime($posting_date["date"]." ".$posting_date["time"]);
-
-                        // Show Originality report text
-                        $details->setVariable("ORIGINALITY_REPORT", $this->txt("originality_report"));
-
-                        // Display submission details
-                        if ($this->object->getVar("students_view_reports"))
-                        {
-                                $details->removeBlockData("originality_report_not_available");
-                                $details->setVariable("LINK_ORIG_REPORT", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "openOriginalityReport"));
-                                if ($posting_date <= time())
-                                {
-                                        switch ($this->object->submissions[$ilUser->getId()]["similarityScore"])
-                                        {
-                                                case "-1":
-                                                        $details->setVariable("TEXT_PENDING_REPORT", $this->txt("report_pending"));
-                                                        $details->removeBlockData("originality_report_score");
-                                                        break;
-                                                default:
-                                                        $score = $this->object->submissions[$ilUser->getId()]["overlap"];
-                                                        $lng_overlay = "";
-
-                                                        if ($this->object->plugin_config["translated_matching"] && $this->object->getVar("translated"))
-                                                        {
-                                                                if ($this->object->submissions[$ilUser->getId()]["translated_matching"]["similarityScore"] > 0
-                                                                        && $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"] > $score)
-                                                                {
-                                                                        $score = $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"];
-                                                                        $lng_overlay = $this->txt("eng_abbreviation");
-                                                                }
-                                                        }
-
-                                                        $details->setVariable("VAL_ORIG_REPORT_SCORE", $score);
-                                                        $details->setVariable("VAL_LNG_OVERLAY_TEXT", $lng_overlay);
-                                                        $details->setVariable("HIDE_SCORE", "");
-                                                        $details->removeBlockData("originality_report_pending");
-                                                        break;
-                                        }
-                                }
-                                else
-                                {
-                                        $details->setVariable("TEXT_PENDING_REPORT", $this->txt("report_pending"));
-                                        $details->removeBlockData("originality_report_score");
-                                }
-                        }
-                        else
-                        {
-                                $details->setVariable("ORIGINALITY_REPORT_NOT_AVAILABLE", $this->txt("originality_report_not_available"));
-                                $details->removeBlockData("originality_report_pending");
-                                $details->removeBlockData("originality_report_score");
-                        }
-
-                        if ($this->object->plugin_config["grademark"]
-                                && $posting_date <= time() && $this->object->submissions[$ilUser->getId()]["score"] != "")
-                        {
-                                $details->setVariable("GRADE_HEADER", $this->txt("grade"));
-
-                                $details->setVariable("VAL_GRADE_SCORE", $this->object->submissions[$ilUser->getId()]["score"]);
-                                $details->setVariable("VALUE_MAX_GRADE", $this->object->getVar("point_value"));
-                                $details->setVariable("VIEW_GRADEMARK_REPORT", $this->txt("view_grademark_report"));
-                                $details->setVariable("LINK_GRADEMARK", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "openGrademark"));
-                        }
-                        else
-                        {
-                                $details->removeBlockData("grade_mark");
-                        }
+                    $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("submission_made")." ".$this->txt("on")." ".$submission_date);
+                    $submit_text = $this->txt("resubmit_paper");
                 }
 
-                $output = $this->output;
-                $output .= $details->get();
+                $details->setVariable("TEXT_SUBMIT_LINK", $ilCtrl->getLinkTarget($this, "submitPaper"));
+                $details->setVariable("TEXT_SUBMIT_LINK_TEXT", $submit_text);
+            }
+            else
+            {
+                $details->removeBlockData("submit_link");
+                if (empty($this->object->submissions[$ilUser->getId()]))
+                {
+                    $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("submission_end_date_past"));
+                }
+                else
+                {
+                    $details->setVariable("TEXT_SUBMISSION_STATUS", $this->txt("submission_made"));
+                }
+            }
+        }
 
-                $tpl->addCss("Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/default/tii.css");
+        if (empty($this->object->submissions[$ilUser->getId()]))
+        {
+            $details->removeBlockData("download_button");
+        }
+        else
+        {
+            // Show View and Download links
+            $details->setVariable("LINK_VIEW_FILE", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "viewSubmission"));
+            $details->setVariable("LINK_DOWNLOAD_FILE", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "downloadSubmission"));
+            $details->setVariable("VAL_PAPER_ID", $this->object->submissions[$ilUser->getId()]["objectID"]);
+            $details->setVariable("TEMPLATE_DIR", "Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/images");
+            $details->setVariable("VIEW_FILE", $this->txt("view_file"));
+            $details->setVariable("DOWNLOAD_FILE", $this->txt("download_file"));
+
+            $posting_date = $this->object->getVar("posting_date");
+            $posting_date = strtotime($posting_date["date"]." ".$posting_date["time"]);
+
+            // Show Originality report text
+            $details->setVariable("ORIGINALITY_REPORT", $this->txt("originality_report"));
+
+            // Display submission details
+            if ($this->object->getVar("students_view_reports"))
+            {
+                $details->removeBlockData("originality_report_not_available");
+                $details->setVariable("LINK_ORIG_REPORT", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "openOriginalityReport"));
+                if ($posting_date <= time())
+                {
+                    switch ($this->object->submissions[$ilUser->getId()]["similarityScore"])
+                    {
+                        case "-1":
+                            $details->setVariable("TEXT_PENDING_REPORT", $this->txt("report_pending"));
+                            $details->removeBlockData("originality_report_score");
+                            break;
+                        default:
+                            $score = $this->object->submissions[$ilUser->getId()]["overlap"];
+                            $lng_overlay = "";
+
+                            if ($this->object->plugin_config["translated_matching"] && $this->object->getVar("translated"))
+                            {
+                                if ($this->object->submissions[$ilUser->getId()]["translated_matching"]["similarityScore"] > 0
+                                        && $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"] > $score)
+                                {
+                                    $score = $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"];
+                                    $lng_overlay = $this->txt("eng_abbreviation");
+                                }
+                            }
+
+                            $details->setVariable("VAL_ORIG_REPORT_SCORE", $score);
+                            $details->setVariable("VAL_LNG_OVERLAY_TEXT", $lng_overlay);
+                            $details->setVariable("HIDE_SCORE", "");
+                            $details->removeBlockData("originality_report_pending");
+                            break;
+                    }
+                }
+                else
+                {
+                    $details->setVariable("TEXT_PENDING_REPORT", $this->txt("report_pending"));
+                    $details->removeBlockData("originality_report_score");
+                }
+            }
+            else
+            {
+                $details->setVariable("ORIGINALITY_REPORT_NOT_AVAILABLE", $this->txt("originality_report_not_available"));
+                $details->removeBlockData("originality_report_pending");
+                $details->removeBlockData("originality_report_score");
+            }
+
+            if ($this->object->plugin_config["grademark"] && $this->object->getVar("point_value") > 0
+                    && $posting_date <= time() && $this->object->submissions[$ilUser->getId()]["score"] != "")
+            {
+                $details->setVariable("GRADE_HEADER", $this->txt("grade"));
+
+                $details->setVariable("VAL_GRADE_SCORE", $this->object->submissions[$ilUser->getId()]["score"]);
+                $details->setVariable("VALUE_MAX_GRADE", $this->object->getVar("point_value"));
+                $details->setVariable("VIEW_GRADEMARK_REPORT", $this->txt("view_grademark_report"));
+                $details->setVariable("LINK_GRADEMARK", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "openGrademark"));
+            }
+            else
+            {
+                $details->removeBlockData("grade_mark");
+            }
+        }
+
+        $output = $this->output;
+        $output .= $details->get();
+
+        $tpl->addCss("Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/templates/default/tii.css");
 		$tpl->setContent($output);
 	}
 
@@ -1102,17 +1076,29 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 
 		// Get template for synch students details
 		$details = new ilTemplate("tpl.submissions_buttons.html", true, true, "Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment");
+        $details->setVariable("NOSCRIPT_WARNING", $this->txt("noscript_warning"));
 
-                $details->setVariable("NOSCRIPT_WARNING", $this->txt("noscript_warning"));
+        $end_date = $this->object->getVar("end_date");
+		// Submit paper link
+		if ((count($this->object->getVar("unsubmitted_students")) > 0 || $this->object->number_of_unsubmitted_students > 0
+					|| ($this->object->getVar("generation_speed") != "0" && count($course_details["students"]) > 0))
+				&&
+				(strtotime($end_date["date"]." ".$end_date["time"]) > time() || $this->object->getVar("late_submission")))
+		{
+			$details->setVariable("SUBMIT_PAPER", $this->txt("submit_paper"));
+			$details->setVariable("SUBMIT_LINK", $ilCtrl->getLinkTarget($this, "submitPaper"));
+		} else {
+			$details->removeBlockData("submit_paper_link");
+		}
 
-                $details->setVariable("REFRESH_LINK", $ilCtrl->getLinkTarget($this, "showSubmissions")."&refresh_submissions=1");
-                $details->setVariable("REFRESH_SUBMISSIONS", $this->txt("refresh_submissions"));
+        $details->setVariable("REFRESH_LINK", $ilCtrl->getLinkTarget($this, "showSubmissions")."&refresh_submissions=1");
+        $details->setVariable("REFRESH_SUBMISSIONS", $this->txt("refresh_submissions"));
 
-                $details->setVariable("SYNC_LINK", $ilCtrl->getLinkTarget($this, "syncStudents")."&refresh_submissions=1");
-                $details->setVariable("COURSE_ID", $this->object->getId());
-                $details->setVariable("SYNCH_STUDENTS", $this->txt("synch_students"));
-                $details->setVariable("SYNCHING", $this->txt("synching"));
-                $details->setVariable("CLOSE", $this->txt("close"));
+        $details->setVariable("SYNC_LINK", $ilCtrl->getLinkTarget($this, "syncStudents")."&refresh_submissions=1");
+        $details->setVariable("COURSE_ID", $this->object->getId());
+        $details->setVariable("SYNCH_STUDENTS", $this->txt("synch_students"));
+        $details->setVariable("SYNCHING", $this->txt("synching"));
+        $details->setVariable("CLOSE", $this->txt("close"));
 		$output .= $details->get();
 
 		// jQuery form for enabling the student's name to be shown when clicked if anonymous marking is enabled
@@ -1422,73 +1408,79 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 
 	function initSubmitPaperForm()
 	{
-            global $ilCtrl;
+        global $ilCtrl, $ilAccess, $ilTabs;
 
-            include_once("Services/Form/classes/class.ilPropertyFormGUI.php");
-            $this->form = new ilPropertyFormGUI();
+        include_once("Services/Form/classes/class.ilPropertyFormGUI.php");
+        $this->form = new ilPropertyFormGUI();
 
-            // Show list of unsubmitted students so that tutor can submit for them
-            if ($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true)
-            {
-                    $si = new ilSelectInputGUI($this->txt("select_student"), "student_id");
+		$tab = ($ilAccess->checkAccess("write", "", $this->object->getRefId())) ? "submissions" : "details";
+
+		$ilTabs->activateTab($tab);
+
+        // tab for the "show submissions" command
+		$link = ($ilAccess->checkAccess("write", "", $this->object->getRefId())) ? $ilCtrl->getLinkTarget($this, "showSubmissions")
+																					: $ilCtrl->getLinkTarget($this, "showDetails");
+		$ilTabs->setBackTarget($this->lng->txt("back"), $link);
+
+        // Show list of unsubmitted students so that tutor can submit for them
+        if ($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true)
+        {
+            $si = new ilSelectInputGUI($this->txt("select_student"), "student_id");
 
             if ($this->object->getVar("generation_speed") != "0")
             {
-                    $options = $this->object->getVar("all_students");
+                $options = $this->object->getVar("all_students");
             }
             else
             {
-                    $options = $this->object->getVar("unsubmitted_students");
+                $options = $this->object->getVar("unsubmitted_students");
             }
 
             $si->setOptions($options);
             $this->form->addItem($si);
-            }
+        }
 
-            // title
-            $ti = new ilTextInputGUI($this->txt("submission_title"), "title");
-            $this->form->addItem($ti);
+        // title
+        $ti = new ilTextInputGUI($this->txt("submission_title"), "title");
+        $this->form->addItem($ti);
 
-            // Submission format
-            if ($this->object->submission_format == 0)
-            {
-                $si = new ilSelectInputGUI($this->txt("submission_format"), "submission_format");
-                $options = array(
-                            "2" => $this->txt("file"),
-                            "1" => $this->txt("text")
-                    );
-                $si->setOptions($options);
-                $this->form->addItem($si);
-            }
-            else
-            {
-                $hi = new ilHiddenInputGUI("submission_format");
-                $hi->setValue($this->object->submission_format);
-                $this->form->addItem($hi);
-            }
+        // Submission format
+        if ($this->object->submission_format == 0)
+        {
+            $si = new ilSelectInputGUI($this->txt("submission_format"), "submission_format");
+            $options = array("2" => $this->txt("file"), "1" => $this->txt("text"));
+            $si->setOptions($options);
+            $this->form->addItem($si);
+        }
+        else
+        {
+            $hi = new ilHiddenInputGUI("submission_format");
+            $hi->setValue($this->object->submission_format);
+            $this->form->addItem($hi);
+        }
 
-            // file
-            if (($this->object->submission_format == 0 || $this->object->submission_format == 2)
-                    )// && (empty($_REQUEST["submission_format"]) || $_REQUEST["submission_format"] == 2)
-            {
-                    $fi = new ilFileInputGUI($this->txt("browse_file"), "paper");
-                    $this->form->addItem($fi);
-            }
+        // file
+        if (($this->object->submission_format == 0 || $this->object->submission_format == 2))
+        	// && (empty($_REQUEST["submission_format"]) || $_REQUEST["submission_format"] == 2)
+        {
+            $fi = new ilFileInputGUI($this->txt("browse_file"), "paper");
+            $this->form->addItem($fi);
+        }
 
-            // cut and paste
-            if (($this->object->submission_format == 0 || $this->object->submission_format == 1)
-                    )// && (empty($_REQUEST["submission_format"]) || $_REQUEST["submission_format"] == 1)
-            {
-                    $ta = new ilTextAreaInputGUI($this->txt("cut_and_paste_paper"), "paper_text");
-                    $ta->setCols(100);
-                    $ta->setRows(8);
-                    $this->form->addItem($ta);
-            }
+        // cut and paste
+        if (($this->object->submission_format == 0 || $this->object->submission_format == 1))
+        	// && (empty($_REQUEST["submission_format"]) || $_REQUEST["submission_format"] == 1)
+        {
+            $ta = new ilTextAreaInputGUI($this->txt("cut_and_paste_paper"), "paper_text");
+            $ta->setCols(100);
+            $ta->setRows(8);
+            $this->form->addItem($ta);
+        }
 
-            $this->form->addCommandButton("uploadPaper", $this->txt("upload"));
+        $this->form->addCommandButton("uploadPaper", $this->txt("upload"));
 
-            $this->form->setTitle($this->txt("submit_paper"));
-            $this->form->setFormAction($ilCtrl->getFormAction($this));
+        $this->form->setTitle($this->txt("submit_paper"));
+        $this->form->setFormAction($ilCtrl->getFormAction($this));
 	}
 
 	/**
@@ -1501,33 +1493,33 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		$output = $this->output;
 		$this->initSubmitPaperForm();
 
-                $msg = $this->object->uploadPaper();
+        $msg = $this->object->uploadPaper();
 
-                if ($msg == "Success")
-                {
-                        $_SESSION["refresh_submissions"] = 1;
-                        ilUtil::sendSuccess($this->txt("msg_paper_submitted"), true);
+        if ($msg == "Success")
+        {
+            $_SESSION["refresh_submissions"] = 1;
+            ilUtil::sendSuccess($this->txt("msg_paper_submitted"), true);
 
-                        if ($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true)
-                        {
-                                $ilCtrl->redirect($this, "showSubmissions");
-                        }
-                        else
-                        {
-                                $ilCtrl->redirect($this, "showDetails");
-                        }
-                }
-                else
-                {
-                        $ilTabs->activateTab("submit");
+            if ($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true)
+            {
+                $ilCtrl->redirect($this, "showSubmissions");
+            }
+            else
+            {
+                $ilCtrl->redirect($this, "showDetails");
+            }
+        }
+        else
+        {
+            $ilTabs->activateTab("submit");
 
-                        $this->form->setValuesByPost();
-                        $output .= $this->form->getHtml();
-                        $tpl->addJavaScript("Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/js/switch_paper_source.js");
-                        $tpl->setContent($output);
+            $this->form->setValuesByPost();
+            $output .= $this->form->getHtml();
+            $tpl->addJavaScript("Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment/js/switch_paper_source.js");
+            $tpl->setContent($output);
 
-                        ilUtil::sendFailure($msg, true);
-                }
+            ilUtil::sendFailure($msg, true);
+        }
 	}
 }
 ?>

@@ -6,9 +6,9 @@
  */
 
 // Constant Variables
-define('TII_ENCRYPT',0);
-define('TII_DIAGNOSTIC',0);
-define('TII_SRC',12);//63
+define('TII_ENCRYPT', 0);
+define('TII_DIAGNOSTIC', 0);
+define('TII_SRC', 12);//63
 
 class ilTurnitinAssignmentTiiCall
 {
@@ -72,6 +72,7 @@ class ilTurnitinAssignmentTiiCall
 		$query_string = $this->arrayToQueryString($tii_vars);
 		// echo $tii_vars["api_url"].$query_string."<br/>===========<br/>";
 		$this->logAction($tii_vars['fid'], $tii_vars['fcmd'], $tii_vars["api_url"].$query_string);
+
 		if (($tii_vars['fid'] == 6 && $tii_vars['fcmd'] == "1") || $tii_vars['fid'] == 7 || ($tii_vars['fid'] == 13 && ($tii_vars['fcmd'] == "1" || $tii_vars['fcmd'] == "3")))
 		{
 			?>
@@ -139,12 +140,8 @@ class ilTurnitinAssignmentTiiCall
 
 	function returnVarsFromXML($xml_string, $fid, $fcmd)
 	{
-		/*if ($fid == 4 && $fcmd == 7)
-		{
-			echo $xml_string."<br/>++++++++++++++++<br/>";
-		}*/
-		//$this->logAction($fid, $fcmd, $xml_string);
 		$xml = simplexml_load_string($xml_string);
+		//$this->logAction($fid, $fcmd, $xml_string);
 		if (!$xml)
 		{
 			$response["rcode"] = 0;
@@ -161,6 +158,7 @@ class ilTurnitinAssignmentTiiCall
 
 						$object_id = 0;
 						$object_children = "";
+						$user_id = 0;
 
 						foreach ($v->children() as $k2 => $v2)
 						{
@@ -198,6 +196,10 @@ class ilTurnitinAssignmentTiiCall
 						{
 							$response["object"][$user_id] = $object_children;//."_".$object_id
 						}
+						else if ($fid == 10 && $fcmd == 2)
+						{
+							$response["object"][] = $object_children;
+						}
 						else
 						{
 							$response["object"] = $object_children;
@@ -225,6 +227,7 @@ class ilTurnitinAssignmentTiiCall
 		if (strlen($response["rcode"]) <= 2 && $response["rcode"] != 0) {
 			$response["status"] = "Success";
 		}
+
 		return $response;
 	}
 

@@ -205,9 +205,9 @@ class ilObjTurnitinAssignmentListGUI extends ilObjectPluginListGUI
             }
             $props[] = array("alert" => $alert, "property" => $this->txt("status"), "value" => $status_text, "newline" => true);
 
-			if ($this->plugin_config["grademark"] && $post_date < time())
+            $point_value = ilObjTurnitinAssignmentAccess::getPointValue($this->obj_id);
+			if ($this->plugin_config["grademark"] && $point_value > 0 && $post_date < time())
 			{
-				$point_value = ilObjTurnitinAssignmentAccess::getPointValue($this->obj_id);
 				$grade = ilObjTurnitinAssignmentAccess::getGrade($ilUser->getId(), $this->obj_id);
 
 				if (is_int($grade))
@@ -217,7 +217,6 @@ class ilObjTurnitinAssignmentListGUI extends ilObjectPluginListGUI
 				else
 				{
                     $grade_text = $this->txt("not_yet_graded");
-
 				}
 
 				$props[] = array("alert" => false, "property" => $this->txt("grade"), "value" => $grade_text, "newline" => true);

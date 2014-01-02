@@ -45,14 +45,21 @@ td.msg
 	display:none;
 }
 
-.refresh_link
+.submit_link
 {
 	cursor:pointer;
 	float:left;
 }
 
+.refresh_link
+{
+	cursor:pointer;
+	float:right;
+}
+
 .sync_link
 {
+	padding-right: 24px;
 	cursor:pointer;
 	float:right;
 }

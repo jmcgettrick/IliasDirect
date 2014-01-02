@@ -168,7 +168,7 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 	{
 		global $ilDB, $ilUser, $ilAccess, $rbacadmin, $rbacreview, $tree;
 
-		// Override php.ini time limit as multiple calls to the API take some time.
+		// Override php.ini time limit as multiple calls to the API may take some time.
 		set_time_limit(0);
 
 		// Set variable whether to refresh submissions
@@ -213,8 +213,7 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 
 		$cmd_not_refresh = array("showLoadRedirectSubmissions", "showLoadRedirectSettings", "showLoadRedirectDetails");
 
-		if ($_REQUEST["selected_cmd"] != "removeFromSystem"
-			&& !(in_array($_REQUEST["cmd"], $cmd_not_refresh)))
+		if ($_REQUEST["selected_cmd"] != "removeFromSystem" && !(in_array($_REQUEST["cmd"], $cmd_not_refresh)))
 		{
 			// Create/Update course in Tii - only do on first visit to assignment or when refreshing data
 			if (!empty($course_details["ref_id"]) && $_SESSION["refresh_submissions"] == 1)
@@ -260,6 +259,16 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 					$tutor_details = new ilObjUser($tutor_id);
 					$tutor_details->tii_usr_id = $this->getTiiUserId($tutor_id);
 
+					if (!empty($tii_assignment_title)) {
+						$title = $this->getVar("tii_assignment_title");
+					} else if (!empty($actual_title)) {
+						$title = $this->getTitle();
+						$this->setVar("tii_assignment_title", $title);
+					} else {
+						$title = $this->lng->txt('obj_xtii')." ".$this->getVar("tii_assign_id");
+						$this->setVar("tii_assignment_title", $title);
+					}
+
 					$tii_vars = array(
 						"cid" => $course_details["tii_course_id"],
 						"ctl" => $course_details["tii_course_title"],
@@ -269,7 +278,7 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 						"uln" => $tutor_details->getLastname(),
 						"utp" => 2,
 						"assignid" => $this->getVar("tii_assign_id"),
-						"assign" => $this->getVar("tii_assignment_title"),
+						"assign" => $title,
 						"session-id" => $_SESSION["tii_session_id"]
 					);
 
@@ -531,9 +540,9 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 
 			// End Tii Session - it is created in syncCourseWithTii
 			$this->endTiiSession($tutor_id, 2);
-
-			unset($_SESSION["cloning_assignment"]);
 		}
+
+		unset($_SESSION["cloning_assignment"]);
 
 		$_SESSION["refresh_submissions"] = 1;
 	}
@@ -599,10 +608,26 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 			$new_obj->$var = $this->getVar($var);
 		}
 
-		$date_array = array("start_date", "end_date", "posting_date");
-		foreach ($date_array as $date)
+		// If dates are in the past then set them to defaults.
+		$start_date = $this->getVar('start_date');
+		if (strtotime($start_date['date']." ".$start_date['time']) < time())
 		{
-			$new_obj->$date = $this->getVar($date);
+			$default_start_date = time();
+			$new_obj->setDate("start_date", date('Y-m-d H:i:s', $default_start_date), "string");
+
+			$default_end_date = strtotime("+7 day");
+			$new_obj->setDate("end_date", date('Y-m-d H:i:s', $default_end_date), "string");
+
+			$default_posting_date = strtotime("+8 day");
+			$new_obj->setDate("posting_date", date('Y-m-d H:i:s', $default_posting_date), "string");
+		}
+		else
+		{
+			$date_array = array("start_date", "end_date", "posting_date");
+			foreach ($date_array as $date)
+			{
+				$new_obj->$date = $this->getVar($date);
+			}
 		}
 
 		$course_details = $tree->getParentNodeData($new_obj->getRefId());
@@ -852,6 +877,9 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 		{
 			// Assignment names must be unique on creation so we add a datestamp on the end then recursively remove it
 			$tii_vars["assign"] = $this->getTitle()."_".date("YmdHis");
+			if (strtotime($tii_vars2["dtstart"]) <= time()) {
+				$tii_vars2["dtstart"] = date('Y-m-d H:i:s');
+			}
 			$recall = "Y";
 		}
 
@@ -1197,7 +1225,7 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 				"cid" => $course_details["tii_course_id"],
 				"ctl" => $course_details["title"],
 				"assignid" => $this->getVar("tii_assign_id"),
-				"assign" => $this->getTitle(),
+				"assign" => $this->getVar("tii_assignment_title"),
 				"uid" => $this->getTiiUserId($ilUser->getId()),
 				"uem" => $ilUser->getEmail(),
 				"ufn" => $ilUser->getFirstname(),
@@ -1627,9 +1655,14 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 
 		if ($_REQUEST["submission_format"] == 2)
 		{
-			if ($_FILES["file"]["error"] > 0)
+			if ($_FILES["paper"]["error"] == 4)
 			{
-				$msg = $this->txt("file_could_not_be_uploaded")." ".$this->txt("file_error_code")." (".$_FILES["file"]["error"].")";
+				$msg = $this->txt("file_doesnt_exist");
+				$error = "Y";
+			}
+			else if ($_FILES["paper"]["error"] > 0)
+			{
+				$msg = $this->txt("file_could_not_be_uploaded")." ".$this->txt("file_error_code")." (".$_FILES["paper"]["error"].")";
 				$error = "Y";
 			}
 			else
