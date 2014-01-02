@@ -59,7 +59,8 @@ author_firstname#:#Vorname Verfasser
 author_surname#:#Nachname Verfasser
 browse_file#:#Nach hochzuladender Datei durchsuchen
 msg_paper_submitted#:#Arbeit wurde bei Turnitin eingereicht
-file_could_not_be_uploaded#:#Ihre Arbeit konnte nicht hochgeladen werden oder ist nicht vorhanden
+file_could_not_be_uploaded#:#Ihre Arbeit konnte nicht hochgeladen werden.
+file_doesnt_exist#:#Es wurde keine Datei ausgewählt.
 required_fields_empty#:#Sie müssen die erforderlichen Felder ausfüllen
 delete_submissions#:#Einreichungen löschen
 download_submissions#:#Einreichungen hochladen
@@ -84,7 +85,7 @@ late_submissions#:#Arbeiten nach dem Fälligkeitsdatum zulassen
 resubmit_paper#:#Arbeit erneut einreichen
 resubmission_notice#:#Sie haben schon eine Arbeit zu dieser Aufgabe eingereicht.  Wenn Sie Ihre Arbeit erneut einreichen, wird die neue die vorherige Einreichung ersetzen. Falls bereits ein Echtheitsbericht erstellt wurde, erhalten Sie den neuen Echtheitsbericht erst 24 Stunden nach der Einreichung.
 dates_submissions_header#:#Daten und Einreichungen
-late_submissions_allowed#:#Verspätete Einreichungen zulassen
+late_submissions_allowed#:#Verspätete Einreichungen sind zulässig
 late_submissions_not_allowed#:#Verspätete Einreichungen sind nicht zulässig
 resubmissions_allowed#:#Erneute Einreichungen sind zulässig
 resubmissions_not_allowed#:#Erneute Einreichungen sind nicht zulässig
@@ -249,5 +250,5 @@ mysql_dump_tii_user_id#:#Turnitin-Benutzer-ID
 mysql_dump_user_email#:#Benutzer-E-Mail
 mysql_dump_date_time#:#Datum/Zeit
 please_provide_submission_text#:#Bitte geben Sie Text für Ihre Einreichung
-no_submission_until_start#:#Sie können keine Arbeit einreichen für diese Aufgabe bis das Startdatum.
+no_submission_until_start#:#Bis zum Startdatum dieser Aufgabe können Sie keine Arbeiten einreichen.
 on#:#am
