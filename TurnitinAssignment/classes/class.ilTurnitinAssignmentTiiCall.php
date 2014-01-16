@@ -8,7 +8,7 @@
 // Constant Variables
 define('TII_ENCRYPT', 0);
 define('TII_DIAGNOSTIC', 0);
-define('TII_SRC', 12);//63
+define('TII_SRC', 12);
 
 class ilTurnitinAssignmentTiiCall
 {
@@ -88,7 +88,7 @@ class ilTurnitinAssignmentTiiCall
 			?>
 			<script type="text/javascript">
 			<!--
-				window.open('<?php echo $tii_vars["api_url"].$query_string; ?>', '_blank', 'height=100,width=300');
+				window.location = '<?php echo $tii_vars["api_url"].$query_string; ?>', '_blank', 'height=100,width=300';
 			//-->
  			</script>
  			<?php

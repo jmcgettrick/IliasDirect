@@ -168,7 +168,7 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 			case "addTutor":
 				$this->checkPermission("write");
 				$this->$cmd();
-				break;
+ 				break;
 
 			case "showSubmissions":
 			case "showDetails":				// list all commands that need read permission here
@@ -719,7 +719,8 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 			foreach ($comparison_checks as $check)
 			{
 				$value = 0;
-				if (is_array($this->form->getInput("paper_compare"))) {
+				if (is_array($this->form->getInput("paper_compare")))
+				{
 					if (in_array($check, $this->form->getInput("paper_compare")))
 					{
 						$value = 1;
@@ -1139,7 +1140,8 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		if ($this->object->number_of_submitted_students > 0)
 		{
 			$details = new ilTemplate("tpl.download_files.html", true, true, "Customizing/global/plugins/Services/Repository/RepositoryObject/TurnitinAssignment");
-			$details->setVariable("DOWNLOAD_ALL_LINK", $ilCtrl->getLinkTarget($this, "bulkDownloadSubmissions"));
+			$link = "window.open('".$ilCtrl->getLinkTarget($this, 'bulkDownloadSubmissions')."', '_blank', 'height=100,width=300');";
+			$details->setVariable("DOWNLOAD_ALL_LINK", $link);
 			$details->setVariable("TEXT_DOWNLOAD_FILES", $this->txt("download_all_submissions"));
 			$output .= $details->get();
 		}
@@ -1210,18 +1212,18 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		}
 		else
 		{*/
-			$msg = $this->object->bulkDownloadTiiSubmissions();//$_POST["submission_ids"]
+		$msg = $this->object->bulkDownloadTiiSubmissions();//$_POST["submission_ids"]
 
-			if ($msg == "Success")
-			{
-				ilUtil::sendSuccess($this->txt("msg_papers_downloaded"), true);
-			}
-			else
-			{
-				ilUtil::sendFailure($msg, true);
-			}
+		if ($msg == "Success")
+		{
+			ilUtil::sendSuccess($this->txt("msg_papers_downloaded"), true);
+		}
+		else
+		{
+			ilUtil::sendFailure($msg, true);
+		}
 
-			$this->showSubmissions();
+		$this->showSubmissions();
 		//}
 	}
 
