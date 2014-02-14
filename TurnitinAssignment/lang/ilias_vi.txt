@@ -1,0 +1,249 @@
+Key#:#Vietnamese
+no#:#Không
+yes#:#Có
+obj_xtii#:#Bài tập Turnitin
+objs_xtii#:#Các Bài tập Turnitin
+obj_xtii_duplicate#:#Sao chép
+objs_xtii_duplicate#:#Sao chép Bài tập Turnitin
+obj_xtii_select#:#Chọn Bài tập Turnitin
+xtii_add#:#Thêm Bài tập Turnitin
+xtii_new#:#Thêm Bài tập Turnitin Mới
+xtii_read#:#Truy cập đọc vào các bài tập Turnitin
+xtii_write#:#Hiệu chỉnh Bài tập Turnitin
+xtii_delete#:#Xoá Bài tập Turnitin
+xtii_visible#:#Có thể xem Bài tập Turnitin 
+xtii_edit_permission#:#Thay đổi Cài đặt Quyền 
+crs_create_xtii#:#Tạo Bài tập Turnitin
+grp_create_xtii#:#Tạo Bài tập Turnitin
+fold_create_xtii#:#Tạo Bài tập Turnitin
+root_create_xtii#:#Tạo Bài tập Turnitin
+cat_create_xtii#:#Tạo Bài tập Turnitin
+content#:#Nội dung
+submissions#:#Bài Nộp
+settings#:#Cài đặt
+edit_settings#:#Hiệu chỉnh Cài đặt
+title#:#Tựa đề
+description#:#Mô tả
+option_one#:#Tuỳ chọn Một
+option_two#:#Tuỳ chọn Hai
+point_value#:#Giá trị Điểm
+start_date#:#Ngày Bắt đầu
+end_date#:#Ngày Hạn
+post_date#:#Ngày Đăng tải
+save#:#Lưu 
+cancel#:#Huỷ
+edit#:#Hiệu chỉnh
+status#:#Tình trạng
+offline#:#Ngoại tuyến
+turnitin_assignment_plugin_configuration#:#Cấu hình Phần Bổ trợ Bài tập Turnitin
+shared_key#:#Khoá Chia Sẻ
+account_id#:#ID Tài khoản
+config_saved#:#Đã Lưu Cấu hình Bài tập Turnitin
+msg_creation_outwith_course_not_allowed#:#Bài tập Turnitin chỉ có thể tạo từ bên trong một khoá học
+author#:#Tác giả
+submission_title#:#Tựa đề
+similarity#:#Tính Tương đồng
+grade#:#Điểm
+response#:#Trả lời
+file#:#Tập tin
+paper_id#:#ID Bài
+submission_date#:#Ngày
+submission_table_title#:#Bài nộp
+submit_paper#:#Nộp Bài
+upload#:#Tải lên
+author_firstname#:#Tên Tác giả
+author_surname#:#Họ Tác giả
+browse_file#:#Tra tìm tập tin để tải lên
+msg_paper_submitted#:#Bài đã được nộp lên Turnitin
+file_could_not_be_uploaded#:#Tập tin của bạn không thể tải lên hoặc không tồn tại 
+required_fields_empty#:#Bạn chưa điền hết thông tin vào các trường được yêu cầu
+delete_submissions#:#Xoá bài nộp
+download_submissions#:#Tải về bài nộp
+msg_papers_deleted#:#Đã xoá các bài nộp được chọn
+msg_papers_downloaded#:#Đã tải về các bài nộp được chọn
+due_date#:#Ngày hạn nộp
+show_details#:#Hiển thị chi tiết
+no_submission#:#Bạn vẫn chưa nộp bài vào bài tập này
+no_submission_yet#:#Bạn vẫn chưa nộp bài vào bài tập này
+submission_made#:#Bạn đã nộp bài cho bài tập này
+submission_end_date_past#:#Bài tập này không còn cho phép nộp bài
+submission_status#:#Tình trạng Nộp 
+view_file#:#Xem Tập tin
+download_file#:#Tải về Tập tin
+grade_file#:#Tập tin Điểm
+special_instructions#:#Hướng dẫn Đặc biệt
+report_generation_speed#:#Tổng hợp Báo cáo Tính Độc sáng cho các bài nộp của học sinh
+immediately_first#:#Ngay lập tức (báo cáo đầu tiên là cuối cùng)
+immediately_overwrite#:#Ngay lập tức (có thể chép đè các báo cáo cho đến hết ngày hạn nộp)
+on_due_date#:#Vào ngày hạn nộp
+late_submissions#:#Cho phép nộp bài sau ngày hạn nộp
+resubmit_paper#:#Nộp lại Bài
+resubmission_notice#:#"Bạn đã nộp bài vào bài tập này. Nếu bạn chọn nộp lại, bài nộp trước đây của bạn sẽ được thay thế bằng bài nộp lại, nếu báo cáo tính độc sáng đã tổng hợp trước đây, bạn sẽ KHÔNG nhận được một Báo cáo Tính Độc sáng mới cho đến sau 24 giờ kể từ khi nộp bài mới này."
+dates_submissions_header#:#Ngày và các Bài Nộp
+late_submissions_allowed#:#Cho phép nộp bài trễ
+late_submissions_not_allowed#:#Không cho phép nộp bài trễ
+resubmissions_allowed#:#Cho phép nộp lại bài
+resubmissions_not_allowed#:#Không cho phép nộp lại bài
+students_allowed_to_view_reports#:#Cho phép học sinh xem Báo cáo Tính Độc Sáng
+originality_report#:#Báo cáo Tính Độc sáng
+originality_report_not_available#:#Người Hướng dẫn của bạn đã chọn không cho phép học sinh xem Báo cáo Tính Độc sáng cho bài tập này. Vui lòng liên lạc người hướng dẫn của bạn nếu bạn muốn biết thêm thông tin.
+view_grademark_report#:#Xem Báo cáo GradeMark
+exclude_type#:#Loại trừ các trùng khớp nhỏ
+exclude_type_by_word#:#Loại trừ theo đếm từ
+exclude_type_by_percent#:#Loại trừ theo phần trăm
+word_count#:#Đếm từ
+percentage#:#Phần trăm (%)
+exclude_bibliography#:#Loại trừ các tài liệu thuộc phần thư mục khỏi Chỉ số Tính Tương Đồng cho tất cả các bài trong bài tập này?
+exclude_bibliography_help#:#"Cài Đặt này cho phép người hướng dẫn chọn loại trừ không kiểm tra tìm các trùng khớp trên phần văn bản của thư mục, các công trình có trích dẫn, hoặc các phần tài liệu tham khảo trong bài của học sinh khi tổng hợp các Báo cáo Tính Độc Sáng. Cài đặt này có thể được huỷ bỏ trong các Báo cáo Tính Độc sáng riêng. "
+exclude_quoted_materials#:#Loại trừ các tài liệu có trích dẫn khỏi Chỉ số Tương Đồng Chung cho tất cả các bài trong bài tập này?
+exclude_quoted_materials_help#:#Cài Đặt này cho phép người hướng dẫn chọn loại trừ không kiểm tra tìm các trùng khớp trên các phần trích dẫn trong bài của học sinh khi tổng hợp các Báo cáo Tính Độc Sáng. Cài đặt này có thể được huỷ bỏ trong các Báo cáo Tính Độc sáng riêng. 
+comparison_options#:#Các Nguồn Tài nguyên mà bài nộp sẽ được so sánh
+s_paper_check#:#các bài của học sinh khác
+internet_check#:#cơ sở dữ liệu Internet
+journal_check#:#"tạp chí chuyên ngành, tạp chí định kỳ, và các ấn phẩm xuất bản"
+institution_check#:#các bài khác bên trong tổ chức
+tii_user_creation_error#:#Không thể tạo được người dùng bên trong Turnitin
+tii_duplicate_email#:#Người dùng không thể đăng ký được với Turnitin bởi địa chỉ email cần mang tính độc nhất và đã được đăng ký trước đó- vui lòng liên lạc với trợ giáo/người quản trị
+select_student#:#Chọn học sinh
+configuration#:#Cấu hình
+tii_log#:#Xem tập tin ghi chép log
+tii_mysql_dump#:#Xem kết xuất MySQL
+export_data#:#Xuất khẩu Dữ liệu
+no_submissions_selected#:#Vui lòng chọn một số dữ liệu nộp để xuất khẩu
+submission_data_exported#:#Dữ liệu nộp bạn chọn đã từng được xuất 
+synch_students#:#Đăng ký tất cả các học sinh của khoá học với Turnitin
+synching#:#Đang đồng bộ 
+close#:#Đóng
+sync_success#:#Hoàn tất đồng bộ hoá học sinh với Turnitin
+sync_fail#:#Xảy ra sự cố với việc đồng bộ hoá học sinh với Turnitin
+sync_issue#:#"Không thể đồng bộ hoá một số người dùng của bạn với Turnitin bởi họ dùng một địa chỉ email mà bạn đã lấy để tạo một tài khoản trên Turnitin. Để giải quyết vấn đề này, hãy đảm bảo tất cả các người dùng của bạn có một địa chỉ email có tính độc nhất hoặc liên lạc với người quản trị và yêu cầu họ bỏ nối kết với người dùng cũ nào đã dùng địa chỉ email đó. Những người dùng bị ảnh hưởng:"
+back_to_submissions#:#Quay trở lại các bài nộp
+admin_statistics#:#Thống kê Người Quản trị
+messages#:#Thông báo/ Thông Điệp
+dates#:#Ngày
+optional_settings#:#Cài đặt Tuỳ chọn
+originality_report_settings#:#Cài đặt Báo cáo Tính Độc sáng
+enable_erater_grammar_check#:#Cho phép kiểm tra ngữ pháp ETS&reg;
+select_ets_handbook#:#Chọn Sổ tay ETS&reg;
+advanced#:#Nâng cao
+high_school#:#Trung học Phổ thông
+middle_school#:#Trung học Cơ sở
+elementary#:#Tiểu học
+english_learners#:#Người học Anh Ngữ
+select_english_dictionary#:#Chọn Từ điển Anh Ngữ
+en_us#:#Từ điển Anh Ngữ Hoa kỳ
+en_gb#:#Từ điển Anh Ngữ Anh Quốc
+en_both#:#Cả hai từ điển Anh ngữ  Hoa Kỳ và Anh Quốc
+categories_enabled_default#:#Danh mục được cho phép theo mặc định
+erater_spelling#:#Đánh vần
+erater_grammar#:#Ngữ Pháp
+erater_usage#:#Cách Sử dụng
+erater_mechanics#:#Kỹ thuật Viết
+erater_style#:#Văn phong
+submit_papers_to#:#Nộp bài vào
+no_repository#:#Không có kho lưu trữ
+standard_repository#:#Kho lưu trữ chuẩn
+institutional_repository#:#Kho lưu trữ của tổ chức
+usr_id#:#ID Người Dùng
+tii_usr_id#:#ID Người dùng Turnitin
+name#:#Tên
+email#:#Email
+username#:#Tên Người Dùng
+unlink_user#:#Huỷ nối kết Người Dùng
+link_relink_user#:#Nối kết/ Nối kết lại Người Dùng
+export_user_data#:#Xuất khẩu Dữ liệu Người Dùng
+users_table_title#:#Người Dùng
+users_unlinked#:#Đã huỷ nối kết Người Dùng khỏi Turnitin
+users_unlink_failure#:#Không thể huỷ nối kết Người Dùng khỏi Turnitin
+users_linked#:#Đã nối kết Người Dùng vào Turnitin
+users_link_failure#:#Không thể nối kết Người Dùng vào Turnitin
+unlink_all_users#:#Huỷ Nối Kết tất cả các Người Dùng
+grademark#:#GradeMark
+ets#:#Kiểm tra ngữ pháp bằng ETS e-rater 
+anon_marking#:#Chấm điểm Ẩn Danh
+api_url#:#URL API
+enable_features#:#Cho phép các Tính năng
+student_emails#:#Email của học sinh
+instructor_emails#:#Email của trợ giáo
+digital_receipts#:#Biên nhận điện tử
+translated_matching#:#Đối chiếu Bản dịch
+student_not_viewed#:#Học sinh chưa xem bài này
+student_last_viewed#:#Học sinh xem bài này lần cuối vào
+at#:#vào
+anon_marking_enabled#:#Cho phép Chấm điểm Ẩn danh
+reason_anon_marking_off#:#Vui lòng nhập vào lý do để tắt Chấm điểm Ẩn danh cho bài này. 
+note_setting_permanent#:#Lưu ý: Người Quản trị có quyền truy cập vào thông tin này và cài đặt này là vĩnh viễn
+turn_off_anon_marking#:#Tắt chấm điểm ẩn danh
+tii_un_re_link_users#:#Huỷ kết nối/ Kết nối lại người dùng
+date_time#:#Ngày/ Thời gian
+fid#:#ID Chức năng
+fcmd#:#Lệnh Chức năng
+rcode#:#Mã Hồi đáp
+msg#:#Thông điệp
+setup_in_tii#:#Bạn có thể cài đặt hoặc thay đổi điều này trong Turnitin
+table_no_submission#:#không có bài nộp
+late#:#Trễ
+refresh_submissions#:#Làm mới bài nộp
+noscript_warning#:#"Bạn không có Javascript được cho phép trên trình duyệt của bạn, một số tính năng quan trọng của Turnitin sẽ không hoạt động nếu không có Javascript"
+test_connection#:#Kiểm tra Kết nối vào Turnitin
+tii_connection_successful#:#Kết nối vào Turnitin thành công
+tii_connection_failed#:#Xảy ra sự cố kết nối vào Turnitin
+end_date_not_before_start#:#Ngày kết thúc không thể trước ngày bắt đầu
+posting_date_not_before_start#:#Ngày đăng tải không thể trước ngày bắt đầu
+point_value_must_be_int#:#Bài tập phải có một giá trị điểm số nguyên trong khoảng 0 và 1000
+default_assignment_settings#:#Cài đặt Bài tập Mặc định
+default_assignment_data_saved#:#Đã lưu Dữ liệu Bài tập Mặc định 
+anon_docs_not_download#:#Các tài liệu ẩn danh không khả dụng để tải về cho đến ngày đăng tải
+no_papers_selected#:#Vui lòng chọn bài để tải xuống
+file_error_code#:#Mã Lỗi Tải lên
+not_yet_graded#:#Chưa chấm điểm
+no_students_enrolled#:#Hiện không có học sinh nào đăng ký khoá học này
+enable_anon_marking#:#Cho phép Chấm điểm Ẩn danh
+enable_translated_matching#:#Cho phép Đối chiếu Bản dịch
+translated_similarity#:#Sự Tương đồng Bản dịch
+translated_report_na#:#Báo cáo về bản dịch không được áp dụng cho bài tập này
+submission_format#:#Định dạng Bài nộp
+any#:#Bất kỳ
+text#:#Phần văn bản
+cut_and_paste_paper#:#Cắt và dán phần văn bản
+tii_instructors#:#Người Hướng dẫn Turnitin
+remove_tutor#:#Gỡ bỏ Trợ giáo
+link_tutor_with_tii#:#Nối kết Trợ giáo với Turnitin
+add_tutor#:#Thêm Trợ giáo
+select_tutor#:#Chọn Trợ giáo
+tutor_removed#:#Trợ giáo đã được gỡ bỏ khỏi khoá học này trong Turnitin- Vui lòng lưu ý trước hết bạn cũng phải gỡ bỏ họ khỏi khoá học này trong ILIAS
+tutor_added#:#Trợ giáo đã được thêm vào Turnitin cho khoá học này
+tutor_not_added#:#Không thể nối kết trợ giáo vào Turnitin
+download_all_submissions#:#Tải về Tất cả các Bài nộp
+js_loading_text#:#Đang tải
+js_saving_text#:#Đang lưu
+js_synching_text#:#Đang đồng bộ
+report_pending#:#Đang chờ
+multi_instructors_intro_text#:#"Vui lòng lưu ý bạn cũng phải gỡ bỏ trợ giáo khỏi khoá học này trong ILIAS, nếu không họ vẫn có thể truy cập bài tập này."
+here#:#đây
+download_export_intro#:#"Tải về của bạn sẽ tự động bắt đầu, nếu không vui lòng nhấp vào đây"
+eng_abbreviation#:#EN
+start_from#:#Bắt đầu từ
+until#:#Cho đến 
+export_logs#:#Xuất khẩu các Ghi chép Log
+export_mysql#:#Xuất khẩu kết xuất MySQL
+mysql_dump_courses#:#Khoá học
+mysql_dump_title#:#Tựa đề
+mysql_dump_ilias_obj_id#:#ID Đối tượng ILIAS
+mysql_dump_ilias_ref_id#:#ID Tham khảo ILIAS
+mysql_dump_turnitin_id#:#ID Turnitin
+mysql_dump_course_tutor_id#:#ID Trợ giáo Khoá học
+mysql_dump_course_tutor_tii_id#:#ID Turnitin của Trợ giáo Khoá học
+mysql_dump_assignments#:#Bài tập
+mysql_dump_ilias_course_ref_id#:#ID Tham khảo Khoá học ILIAS
+mysql_dump_submissions#:#Nộp bài
+mysql_dump_submission_ref_id#:#ID Tham khảo Bài nộp
+mysql_dump_submission_tii_id#:#ID Bài nộp Turnitin
+mysql_dump_assignment_ref_id#:#ID Tham khảo Bài tập
+mysql_dump_ilias_user_id#:#ID Người Dùng
+mysql_dump_tii_user_id#:#ID Người Dùng Turnitin
+mysql_dump_user_email#:#Email Người Dùng
+mysql_dump_date_time#:#Ngày/ Thời gian
+please_provide_submission_text#:#Vui lòng cung cấp phần văn bản cho bài nộp của bạn
+no_submission_until_start#:#Bạn không thể nộp một bài vào bài tập này cho đến ngày bắt đầu 
+on#:#vào
