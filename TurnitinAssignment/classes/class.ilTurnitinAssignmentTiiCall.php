@@ -8,7 +8,7 @@
 // Constant Variables
 define('TII_ENCRYPT', 0);
 define('TII_DIAGNOSTIC', 0);
-define('TII_SRC', 12);
+define('TII_SRC', 92);
 
 class ilTurnitinAssignmentTiiCall
 {
