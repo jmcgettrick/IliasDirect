@@ -99,9 +99,9 @@ exclude_type_by_percent#:#Ausschließen nach Prozent
 word_count#:#Wortanzahl
 percentage#:#Prozent (%)
 exclude_bibliography#:#Bibliografisches Material vom Ähnlichkeitsindex für alle Arbeiten zu dieser Aufgabe ausschließen?
-exclude_bibliography_help#:#Mit dieser Einstellung kann die Lehrkraft wählen, ob Textstellen aus Bibliografien, zitierten Arbeiten oder Referenzabschnitte von Studentenarbeiten bei der Prüfung von Übereinstimmungen zum Erstellen von Echtheitsberichten ausgeschlossen werden. Diese Einstellung kann bei einzelnen Echtheitsberichten aufgehoben werden.
+exclude_bibliography_help#:#Mit dieser Einstellung kann der Administrator wählen, ob Textstellen aus Bibliografien, zitierten Arbeiten oder Referenzabschnitte von Mitgliederarbeiten bei der Prüfung von Übereinstimmungen zum Erstellen von Echtheitsberichten ausgeschlossen werden. Diese Einstellung kann bei einzelnen Echtheitsberichten aufgehoben werden.
 exclude_quoted_materials#:#Zitate vom Ähnlichkeitsindex für alle Arbeiten zu dieser Aufgabe ausschließen?
-exclude_quoted_materials_help#:#Mit dieser Einstellung kann die Lehrkraft in Anführungszeichen gesetzten Text von den beim Erstellen von Echtheitsberichten angezeigten Übereinstimmungen ausschließen. Diese Einstellung kann bei einzelnen Echtheitsberichten aufgehoben werden.
+exclude_quoted_materials_help#:#Mit dieser Einstellung kann der Administrator in Anführungszeichen gesetzten Text von den beim Erstellen von Echtheitsberichten angezeigten Übereinstimmungen ausschließen. Diese Einstellung kann bei einzelnen Echtheitsberichten aufgehoben werden.
 comparison_options#:#Quellen zum Abgleich mit der eingereichten Arbeit
 s_paper_check#:#Andere Mitgliederarbeiten
 internet_check#:#Internet-Datenbank
