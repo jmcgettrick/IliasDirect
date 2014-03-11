@@ -101,7 +101,7 @@ class ilObjTurnitinAssignmentListGUI extends ilObjectPluginListGUI
 		}
 
 		$default_command = "showLoadRedirectSubmissions"; //"showSubmissions";
-		if ($participants->isMember($ilUser->getId()))
+		if ($participants->isMember($ilUser->getId()) || !empty($_SESSION["member_view_container"]))
 		{
 			$default_command = "showLoadRedirectDetails"; //"showDetails";
 		}
