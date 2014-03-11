@@ -209,7 +209,8 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 	*/
 	function getStandardCmd()
 	{
-		if($this->object->course_details["isTutor"] == true || $this->object->course_details["isAdmin"] == true)
+		if(($this->object->course_details["isTutor"] == true || $this->object->course_details["isAdmin"] == true) &&
+			empty($_SESSION["member_view_container"]))
 		{
 			return "showSubmissions";
 		}
@@ -252,7 +253,7 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		}
 
 		// tab for "Turnitin Instructors"
-		if ($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true)
+		if (($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true) && empty($_SESSION["member_view_container"])) 
 		{
 			$ilTabs->addTab("tiiInstructors", $this->txt("tii_instructors"), $ilCtrl->getLinkTarget($this, "tiiInstructors")."&refresh_instructors=1");
 		}
@@ -559,9 +560,9 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 	*/
 	function getSettingsValues()
 	{
-                $values = array();
+        $values = array();
 		$values["title"] = $this->object->getVar("title");
-                $values["desc"] = $this->object->getLongDescription();
+        $values["desc"] = $this->object->getLongDescription();
 		$values["is_online"] = $this->object->getVar("is_online");
 		$values["point_value"] = $this->object->getVar("point_value");
 		$values["start_date"] = $this->object->getVar("start_date");
