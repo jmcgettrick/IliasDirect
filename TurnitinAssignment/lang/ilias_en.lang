@@ -252,3 +252,4 @@ mysql_dump_date_time#:#Date/Time
 please_provide_submission_text#:#Please provide text for your submission
 no_submission_until_start#:#You can not submit a paper to this assignment until the start date
 on#:#on
+report_pending_until_due_date#:#Pending until the due date

@@ -243,7 +243,7 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		$this->addInfoTab();
 
 		$end_date = $this->object->getVar("end_date");
-                $start_date = $this->object->getVar("start_date");
+        $start_date = $this->object->getVar("start_date");
 		$course_details =  $this->object->getVar("course_details");
 
 		// tab for "settings"
@@ -253,7 +253,9 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
 		}
 
 		// tab for "Turnitin Instructors"
-		if (($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true) && empty($_SESSION["member_view_container"])) 
+		if ((($this->object->course_details["isAdmin"] == true || $this->object->course_details["isTutor"] == true) &&
+			$ilAccess->checkAccess("write", "", $this->object->getRefId()))
+			&& empty($_SESSION["member_view_container"])) 
 		{
 			$ilTabs->addTab("tiiInstructors", $this->txt("tii_instructors"), $ilCtrl->getLinkTarget($this, "tiiInstructors")."&refresh_instructors=1");
 		}
@@ -914,34 +916,39 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
             // Display submission details
             if ($this->object->getVar("students_view_reports"))
             {
-                $details->removeBlockData("originality_report_not_available");
-                $details->setVariable("LINK_ORIG_REPORT", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "openOriginalityReport"));
-                
-                switch ($this->object->submissions[$ilUser->getId()]["similarityScore"])
-                {
-                    case "-1":
-                        $details->setVariable("TEXT_PENDING_REPORT", $this->txt("report_pending"));
-                        $details->removeBlockData("originality_report_score");
-                        break;
-                    default:
-                        $score = $this->object->submissions[$ilUser->getId()]["overlap"];
-                        $lng_overlay = "";
+                if ($this->object->getVar("generation_speed") == 2 && strtotime($end_date_time["date"]." ".$end_date_time["time"]) > time()) {
+                	$details->setVariable("ORIGINALITY_REPORT_NOT_AVAILABLE", $this->txt("report_pending_until_due_date"));
+	                $details->removeBlockData("originality_report_pending");
+	                $details->removeBlockData("originality_report_score");
+                } else {
+                	$details->removeBlockData("originality_report_not_available");
+                	$details->setVariable("LINK_ORIG_REPORT", $ilCtrl->getLinkTargetByClass("ilobjturnitinassignmentgui", "openOriginalityReport"));
+	                switch ($this->object->submissions[$ilUser->getId()]["similarityScore"])
+	                {
+	                    case "-1":
+	                        $details->setVariable("TEXT_PENDING_REPORT", $this->txt("report_pending"));
+	                        $details->removeBlockData("originality_report_score");
+	                        break;
+	                    default:
+	                        $score = $this->object->submissions[$ilUser->getId()]["overlap"];
+	                        $lng_overlay = "";
 
-                        if ($this->object->plugin_config["translated_matching"] && $this->object->getVar("translated"))
-                        {
-                            if ($this->object->submissions[$ilUser->getId()]["translated_matching"]["similarityScore"] > 0
-                                    && $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"] > $score)
-                            {
-                                $score = $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"];
-                                $lng_overlay = $this->txt("eng_abbreviation");
-                            }
-                        }
+	                        if ($this->object->plugin_config["translated_matching"] && $this->object->getVar("translated"))
+	                        {
+	                            if ($this->object->submissions[$ilUser->getId()]["translated_matching"]["similarityScore"] > 0
+	                                    && $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"] > $score)
+	                            {
+	                                $score = $this->object->submissions[$ilUser->getId()]["translated_matching"]["overlap"];
+	                                $lng_overlay = $this->txt("eng_abbreviation");
+	                            }
+	                        }
 
-                        $details->setVariable("VAL_ORIG_REPORT_SCORE", $score);
-                        $details->setVariable("VAL_LNG_OVERLAY_TEXT", $lng_overlay);
-                        $details->setVariable("HIDE_SCORE", "");
-                        $details->removeBlockData("originality_report_pending");
-                        break;
+	                        $details->setVariable("VAL_ORIG_REPORT_SCORE", $score);
+	                        $details->setVariable("VAL_LNG_OVERLAY_TEXT", $lng_overlay);
+	                        $details->setVariable("HIDE_SCORE", "");
+	                        $details->removeBlockData("originality_report_pending");
+	                        break;
+	                }
                 }
             }
             else

@@ -247,3 +247,4 @@ mysql_dump_date_time#:#Ngày/ Thời gian
 please_provide_submission_text#:#Vui lòng cung cấp phần văn bản cho bài nộp của bạn
 no_submission_until_start#:#Bạn không thể nộp một bài vào bài tập này cho đến ngày bắt đầu 
 on#:#vào
+report_pending_until_due_date#:#Chờ cho đến khi ngày đáo hạn
