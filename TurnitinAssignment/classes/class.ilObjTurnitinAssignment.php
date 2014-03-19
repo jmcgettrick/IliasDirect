@@ -259,15 +259,18 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 					$tutor_details = new ilObjUser($tutor_id);
 					$tutor_details->tii_usr_id = $this->getTiiUserId($tutor_id);
 
+					// Work out title to use for assignment
+					$tii_assignment_title = $this->getVar("tii_assignment_title");
+					$actual_title = $this->getTitle();
+
 					if (!empty($tii_assignment_title)) {
 						$title = $this->getVar("tii_assignment_title");
 					} else if (!empty($actual_title)) {
 						$title = $this->getTitle();
-						$this->setVar("tii_assignment_title", $title);
 					} else {
 						$title = $this->lng->txt('obj_xtii')." ".$this->getVar("tii_assign_id");
-						$this->setVar("tii_assignment_title", $title);
 					}
+					$this->setVar("tii_assignment_title", $title);
 
 					$tii_vars = array(
 						"cid" => $course_details["tii_course_id"],
