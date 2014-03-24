@@ -122,7 +122,7 @@ class ilSubmissionTableGUI extends ilTable2GUI
         }
         else
         {
-        	$this->tpl->setVariable("VAL_AUTHOR", $a_set["firstname"]." ".$a_set["lastname"]);
+        	$this->tpl->setVariable("VAL_AUTHOR", $a_set["lastname"].", ".$a_set["firstname"]);
         	$this->tpl->setVariable("POPUP_CLASS", "");
         }
 

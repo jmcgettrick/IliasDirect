@@ -1722,6 +1722,12 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 				"pdata" => '@'.CLIENT_DATA_DIR.'/TurnitinAssignment/'.$filename
 				);
 
+			// Set whether response email has to be sent
+			if ($this->plugin_config["digital_receipts"] != 1)
+			{
+				$tii_vars["dis"] = 1;
+			}
+
 			if ($object_id != 0)
 			{
 				$tii_vars["oid"] = $object_id;
