@@ -1299,7 +1299,7 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 		foreach ($course_details["students"] as $student)
 		{
 			$user_details = new ilObjUser($student);
-			$all_students[$student] = $user_details->getFirstname()." ".$user_details->getLastname();
+			$all_students[$student] = $user_details->getLastname().", ".$user_details->getFirstname();
 
 			if (empty($this->submissions[$student]))
 			{
@@ -1307,7 +1307,7 @@ class ilObjTurnitinAssignment extends ilObjectPlugin
 					"userid" => $this->getTiiUserId($student)
 					);
 
-				$unsubmitted_students[$student] = $user_details->getFirstname()." ".$user_details->getLastname();
+				$unsubmitted_students[$student] = $user_details->getLastname().", ".$user_details->getFirstname();
 			}
 			else
 			{
