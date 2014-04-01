@@ -1438,6 +1438,7 @@ class ilObjTurnitinAssignmentGUI extends ilObjectPluginGUI
             {
                 $options = $this->object->getVar("unsubmitted_students");
             }
+			asort($options, SORT_NATURAL | SORT_FLAG_CASE);
 
             $si->setOptions($options);
             $this->form->addItem($si);
